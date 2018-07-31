@@ -3,6 +3,7 @@
 class ConsultaTablas
 {
     private $conn;
+    private $nombre_tabla;
 
     public function Listar_Tablas()
     {
@@ -16,26 +17,38 @@ class ConsultaTablas
             echo 'No se ejecuto';
         }
     }
-
-    public function Registrar_Tipo_Pregunta($no_ti_pre)
+    public function Listar_Tablas_X($tabla)
     {
+        $this->nombre_tabla = $tabla;
 
-        try {
+        if ($this->nombre_tabla == "pregunta") {
+            $Sql      = "SELECT id_pgta,  nomb_pgta, if(estado_pgta=1,'Activo','Inactivo') AS estado_pgta  FROM bomberos.pregunta";
+            $Consulta = $this->conn->prepare($Sql);
 
-            $sql      = "INSERT INTO tipo_pregunta (nomb_tipo_pgta)VALUES(?)";
-            $consulta = $this->conn->prepare($sql);
-
-            $consulta->bindParam(1, $no_ti_pre, PDO::PARAM_STR);
-
-            if ($consulta->execute()) {
-                echo "Registro exitosamente.";
+            if ($Consulta->execute()) {
+                $result['data'] = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+                echo json_encode($result);
             } else {
-                echo "No se inserto";
+                echo 'No se ejecuto';
             }
-
-        } catch (Exception $e) {
-            echo 'Falló la conexión: ' . $e->getMessage();
         }
+
+        if ($this->nombre_tabla == "respuesta") {
+            echo $this->nombre_tabla;
+        }
+
+        if ($this->nombre_tabla == "resultado") {
+            echo 'nn Tabla r';
+        }
+
+        if ($this->nombre_tabla == "encuesta") {
+            echo $this->nombre_tabla;
+        }
+
+        if ($this->nombre_tabla == "contacto") {
+            echo $this->nombre_tabla;
+        }
+
     }
 
     public function __construct()

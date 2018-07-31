@@ -1,8 +1,6 @@
 $(document).ready(function() {
     Listar_Tipos_Encuestas();
     Listar_Tipo_Tipo_Pregunta();
-    /*listar();*/
-    // $("#Frm_Reg_Preguntas").hide();
 });
 //GUARDA TODAS LAS PREGUNTAS
 function Registrar_Pregunta() {

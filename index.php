@@ -281,7 +281,7 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a onclick="tablapregunta()" href="javascript:Abrir_Form_Pregunta()">
+                                        <a onclick="tablapregunta('pregunta')"  href="javascript:Abrir_Form_Pregunta()">
                                             Preguntas
                                         </a>
                                     </li>
@@ -310,7 +310,7 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a onclick="tablapregunta()" data-toggle="modal" data-target=".bs-example-modal-center" >
+                                        <a data-toggle="modal" data-target=".bs-example-modal-center" >
                                             Preguntas
                                         </a>
                                     </li>
@@ -427,21 +427,14 @@ echo '
 
 	                        </div>
 	                        <div class="modal-content">
-				            <div class="row">
 				            	<table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">
-					                <thead>
-					                    <tr>
-					                        <th>id</th>
-					                        <th>Pregunta</th>
-					                        <th>estado</th>
-					                        <th></th>
-					                    </tr>
+					                <thead id="cabeza">
+
 					                </thead>
 					                <tbody>
 					                </tbody>
 				            	</table>
-				            </div>
-	                    </div>
+	                    	</div>
 	                    </div><!-- /.modal-content -->
 	                </div><!-- /.modal-dialog -->
 	            </div><!-- /.modal -->

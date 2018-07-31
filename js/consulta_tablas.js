@@ -1,4 +1,6 @@
-$(document).ready(function() {});
+var arrayNombres = new Array();
+var datos = [];
+var objeto = {};
 var listar = function() {
     var table = $('#tables').DataTable({
         "bDeferRender": true,
@@ -8,6 +10,20 @@ var listar = function() {
         backdrop: 'static',
         keyboard: false
     });*/
+    var hola = "";
+    var ultimo = arrayNombres.length - 1;
+    for (var i = 0; i < arrayNombres.length; i++) {
+        if (i == ultimo) {
+            hola += '"data"' + : +arrayNombres[i];
+        } else {
+            hola += "data": arrayNombres[i] + ',';
+        }
+    }
+    datos.push({
+        hola
+    });
+    objeto.datos = datos;
+    alert(objeto);
     table.destroy();
     table = $("#tables").DataTable({
         "ajax": {
@@ -18,16 +34,34 @@ var listar = function() {
             },
             "type": "json"
         },
-        "columns": [{
-            "data": "id_pgta"
-        }, {
-            "data": "nomb_pgta"
-        }, {
-            "data": "estado_pgta"
-        }],
+        "columns": hola,
         "oLanguage": idioma_esp
     });
 }
+var listarcabecera = function(n_t) {
+    if (n_t == "pregunta") {
+        var cabeza = '<tr>';
+        cabeza += '<th>id</th>';
+        cabeza += '<th>Pregunta</th>';
+        cabeza += '<th>estado</th>';
+        cabeza += '<th></th>';
+        cabeza += '<th></th>';
+        cabeza += '</tr>';
+    }
+    $('#cabeza').html(cabeza);
+    arrayNombres[0] = "id_pgta";
+    arrayNombres[1] = "nomb_pgta";
+    arrayNombres[2] = "estado_pgta";
+    var numero = "3";
+    listar();
+}
+var datosm = [{
+    "data": "id_pgta"
+}, {
+    "data": "nomb_pgta"
+}, {
+    "data": "estado_pgta"
+}];
 var idioma_esp = {
     "sProcessing": "Procesando...",
     "sLengthMenu": 'Mostrar <select>' + '<option value="5">5</option>' + '<option value="10">10</option>' + '<option value="15">15</option>' + '<option value="20">20</option>' + '<option value="-1">All</option>' + '</select> registros',
@@ -53,23 +87,6 @@ var idioma_esp = {
     }
 };
 
-function tablapregunta() {
-    /* var tabla = '<table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">';
-     tabla += '<thead>';
-     tabla += '<tr>';
-     tabla += '<th>id</th>';
-     tabla += '<th>Pregunta</th>';
-     tabla += '<th>estado</th>';
-     tabla += '</tr>';
-     tabla += '</thead>';
-     tabla += '<tbody>';
-     tabla += '</tbody>';
-     tabla += '</table>';
-     $('#tab').html(tabla);*/
-    listar();
-}
-
-function cerrarTabla() {
-    var vaciarTable = $('#tables').DataTable();
-    vaciarTable.destroy();
+function tablapregunta(nombreTabla) {
+    listarcabecera(nombreTabla);
 }
