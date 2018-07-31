@@ -71,7 +71,7 @@
         <div class="form-group">
             <label>Nombre de la pregunta</label>
             <div>
-                <textarea id="nombre_pregunta" required class="form-control" rows="5"></textarea>
+                <textarea id="nombre_pregunta" required class="form-control" rows="1"></textarea>
             </div>
         </div>
 
@@ -97,6 +97,7 @@
 
             </div>
         </div>
+
     </form>
 
 </div>

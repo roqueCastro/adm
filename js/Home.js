@@ -33,11 +33,3 @@ function Abrir_Form_Contacto() {
         });
     });
 }
-
-function Abrir_Form_CPreguntas() {
-    $('.modal-body').load(function() {
-        $('#modalTable').modal({
-            show: true
-        });
-    });
-}

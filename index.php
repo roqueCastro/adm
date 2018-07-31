@@ -13,7 +13,7 @@
         <!-- App Icons -->
         <link rel="shortcut icon" href="assets/images/favicon.ico"/>
         <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="assets/plugins/morris/morris.css"/>
+        <!-- <link rel="stylesheet" href="assets/plugins/morris/morris.css"/> -->
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
@@ -281,7 +281,7 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="javascript:Abrir_Form_Pregunta()">
+                                        <a onclick="tablapregunta()" href="javascript:Abrir_Form_Pregunta()">
                                             Preguntas
                                         </a>
                                     </li>
@@ -310,7 +310,7 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a onclick="tablapregunta()" data-toggle="modal" data-target=".bs-example-modal-center">
+                                        <a onclick="tablapregunta()" data-toggle="modal" data-target=".bs-example-modal-center" >
                                             Preguntas
                                         </a>
                                     </li>
@@ -416,54 +416,35 @@ echo '
             </div>
             <!--  end container -->
             <!---------------------------------------------------------- inicio de modals ------------------------------------------------>
-            <div aria-hidden="true" aria- labelledby="mySmallModalLabel" class="modal  fade bs-example-modal-sm" id="Frm_Admin"  role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title mt- 0" id="mySmallModalLabel">
-                            </h5>
-                            <button aria-hidden="true"  class="close" data-dismiss="modal"  type="button">
-                                ×
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Todo con lo
+               <div id="Frm_Admin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	                <div class="modal-dialog modal-lg">
+	                    <div class="modal-content">
+	                        <div class="modal-header">
+	                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Large modal</h5>
+	                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	                        </div>
+	                        <div class="modal-body">
 
-                            relacionado al otro
-                                                        formulario -->
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-
-            <div class="modal fade" id="modalTable">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h4 class="modal-title">Consulta de tablas</h4>
-
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body" data-backdrop="static" data-keyboard="false">
-
-                        <div id="tab">Hola</div>
-
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" onclick="cerrarTabla()" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-
-                  </div>
-                </div>
-            </div>
-            <!-- end modals -->
+	                        </div>
+	                        <div class="modal-content">
+				            <div class="row">
+				            	<table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					                <thead>
+					                    <tr>
+					                        <th>id</th>
+					                        <th>Pregunta</th>
+					                        <th>estado</th>
+					                        <th></th>
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                </tbody>
+				            	</table>
+				            </div>
+	                    </div>
+	                    </div><!-- /.modal-content -->
+	                </div><!-- /.modal-dialog -->
+	            </div><!-- /.modal -->
         </div>
         <!--end donde va el mapa completo -->
         <!-- Footer -->
@@ -490,9 +471,9 @@ echo '
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <!--Morris Chart-->
-        <script src="assets/plugins/morris/morris.min.js"></script>
+        <!-- <script src="assets/plugins/morris/morris.min.js"></script> -->
         <script src="assets/plugins/raphael/raphael-min.js"></script>
-        <script src="assets/pages/dashborad.js"></script>
+        <!-- <script src="assets/pages/dashborad.js"></script> -->
         <!-- App js -->
         <script src="assets/js/app.js"></script>
           <!-- Required datatable js -->

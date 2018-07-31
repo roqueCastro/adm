@@ -37,6 +37,8 @@ var opcionPregunta = function(id_pregunta) {
             $('#tipo_dato').html(tipo_dato_respuesta);
             $('#nombreRespuestaOpcion').hide();
         }
+        $('#btnEnviar').show();
+        $('#estadoOpcion').show();
         cargar(id_pregunta, opcion);
     });
 }
@@ -47,7 +49,8 @@ var cargar = function(id_pregunta, opcion) {
         Operacion: 'Listar_Respuestas_ID',
         id_pregunta: id_pregunta
     }, function(data) {
-        var datos = JSON.parse(data);
+        var datos = "";
+        datos = JSON.parse(data);
         if (datos.length != 0) {
             var dImpri = 'Ya estan registradas: \n';
             for (var i = 0; i < datos.length; i++) {
@@ -58,6 +61,8 @@ var cargar = function(id_pregunta, opcion) {
                 $('#multipleOpcion').hide();
                 $('#btnEnviar').hide();
                 $('#estadoOpcion').hide();
+            } else if (opcion == 0) {
+                $('#multipleOpcion').hide();
             }
         } else {
             $("#respuestasM").hide();
@@ -84,6 +89,8 @@ function Registrar_Respuesta() {
         } else if (estado_re.length == 0) {
             errorDatos('Selecione un estado.');
         } else {
+            // alert("pregunta: " + pregunta + ", tipo_dato: " + tipo_dato + ", Nombre: " + nomRes + ", estado_re: " + estado_re);
+            tipo_dato = "multiple";
             $.ajax({
                 url: 'Controladores/Control_Respuesta.php',
                 type: 'POST',
@@ -119,7 +126,7 @@ function Registrar_Respuesta() {
                 Operacion: 'Registrar_Respuesta',
                 pregunta: pregunta,
                 tipo_dato: tipo_dato,
-                nomRes: nomRes,
+                nomRes: tipo_dato,
                 estado_re: estado_re
             },
             success: function(datos) {
@@ -137,16 +144,6 @@ function Registrar_Respuesta() {
             }
         });
     }
-    /*else if (tipo_dato.length == 0) {
-        tipo_dato = "multiple";
-    } else else {
-        if (tipo_dato == 0) {
-            tipo_dato = "multiple";
-        }
-        alert(tipo_dato);
-        // alert("pregunta: " + pregunta + ", tipo_dato: " + tipo_dato + ", Nombre: " + nomRes + ", estado_re: " + estado_re);
-       
-    }*/
 }
 
 function showMessageCancel() {

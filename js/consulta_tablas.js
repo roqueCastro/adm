@@ -4,10 +4,10 @@ var listar = function() {
         "bDeferRender": true,
         "sPaginationType": "full_numbers"
     });
-    $('#modalTable').modal({
+    /*$('#modalTable').modal({
         backdrop: 'static',
         keyboard: false
-    });
+    });*/
     table.destroy();
     table = $("#tables").DataTable({
         "ajax": {
@@ -54,18 +54,18 @@ var idioma_esp = {
 };
 
 function tablapregunta() {
-    var tabla = '<table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">';
-    tabla += '<thead>';
-    tabla += '<tr>';
-    tabla += '<th>id</th>';
-    tabla += '<th>Pregunta</th>';
-    tabla += '<th>estado</th>';
-    tabla += '</tr>';
-    tabla += '</thead>';
-    tabla += '<tbody>';
-    tabla += '</tbody>';
-    tabla += '</table>';
-    $('#tab').html(tabla);
+    /* var tabla = '<table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">';
+     tabla += '<thead>';
+     tabla += '<tr>';
+     tabla += '<th>id</th>';
+     tabla += '<th>Pregunta</th>';
+     tabla += '<th>estado</th>';
+     tabla += '</tr>';
+     tabla += '</thead>';
+     tabla += '<tbody>';
+     tabla += '</tbody>';
+     tabla += '</table>';
+     $('#tab').html(tabla);*/
     listar();
 }
 

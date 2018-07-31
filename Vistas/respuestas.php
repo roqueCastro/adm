@@ -23,6 +23,10 @@
         $('#rojo').hide();
         $('#verde').hide();
         $('#respuestasM').hide();
+        $('#nombreRespuestaOpcion').hide();
+        $('#multipleOpcion').hide();
+        $('#btnEnviar').hide();
+        $('#estadoOpcion').hide();
     </script>
 
 </head>
@@ -58,13 +62,7 @@
             </div>
             <!--  <input type="text" class="form-control" required placeholder="Type something"/> -->
         </div>
-        <div class="form-group" id="respuestasM">
-            <label>Respuestas</label>
-            <div>
-                <textarea id="respuestas" readonly="readonly"   class="form-control" rows="5">
-                </textarea>
-            </div>
-        </div>
+
 
         <div class="form-group" id="multipleOpcion">
             <label>Tipo de dato en respuesta</label>
@@ -80,7 +78,7 @@
         <div class="form-group" id="nombreRespuestaOpcion">
             <label>Nombre de la respuesta</label>
             <div>
-                <textarea id="nombre_respuesta" required class="form-control" rows="5"></textarea>
+                <textarea id="nombre_respuesta" required class="form-control" rows="1"></textarea>
             </div>
         </div>
 
@@ -93,6 +91,13 @@
                 </select>
             </div>
 
+        </div>
+         <div class="form-group" id="respuestasM">
+            <label>Respuestas existentes</label>
+            <div>
+                <textarea id="respuestas" readonly="readonly"   class="form-control" rows="3">
+                </textarea>
+            </div>
         </div>
 
         <div class="form-group">
