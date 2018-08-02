@@ -1,67 +1,67 @@
-var arrayNombres = new Array();
-var datos = [];
-var objeto = {};
-var listar = function() {
-    var table = $('#tables').DataTable({
-        "bDeferRender": true,
-        "sPaginationType": "full_numbers"
-    });
-    /*$('#modalTable').modal({
-        backdrop: 'static',
-        keyboard: false
-    });*/
-    var hola = "";
-    var ultimo = arrayNombres.length - 1;
-    for (var i = 0; i < arrayNombres.length; i++) {
-        if (i == ultimo) {
-            hola += '"data"' + : +arrayNombres[i];
-        } else {
-            hola += "data": arrayNombres[i] + ',';
-        }
-    }
-    datos.push({
-        hola
-    });
-    objeto.datos = datos;
-    alert(objeto);
+var listar = function(n_t, datosm) {
+    var table = $('#tables').DataTable();
+    alert(table);
+    /* $('#Frm_Admin').modal({
+         backdrop: 'static',
+         keyboard: false
+     });*/
     table.destroy();
     table = $("#tables").DataTable({
+        "bDeferRender": true,
+        "sPaginationType": "full_numbers",
         "ajax": {
             "method": "POST",
             "url": "Controladores/Control_Consulta_Tablas.php",
             "data": {
-                "Operacion": "Listar_data"
+                "Operacion": "Listar_tablas_n",
+                "tabla": n_t
             },
             "type": "json"
         },
-        "columns": hola,
+        "columns": datosm,
         "oLanguage": idioma_esp
     });
 }
 var listarcabecera = function(n_t) {
     if (n_t == "pregunta") {
         var cabeza = '<tr>';
-        cabeza += '<th>id</th>';
-        cabeza += '<th>Pregunta</th>';
-        cabeza += '<th>estado</th>';
+        cabeza += '<th>ID</th>';
+        cabeza += '<th>PREGUNTA</th>';
+        cabeza += '<th>ESTADO</th>';
         cabeza += '<th></th>';
         cabeza += '<th></th>';
         cabeza += '</tr>';
+        var datosm = [{
+            "data": "id_pgta"
+        }, {
+            "data": "nomb_pgta"
+        }, {
+            "data": "estado_pgta"
+        }];
+        $('#cabeza').html(cabeza);
+        listar(n_t, datosm);
     }
-    $('#cabeza').html(cabeza);
-    arrayNombres[0] = "id_pgta";
-    arrayNombres[1] = "nomb_pgta";
-    arrayNombres[2] = "estado_pgta";
-    var numero = "3";
-    listar();
+    if (n_t == "respuesta") {
+        var cabeza = '<tr>';
+        cabeza += '<th>ID</th>';
+        cabeza += '<th>PREGUNTA</th>';
+        cabeza += '<th>RESPUESTA</th>';
+        cabeza += '<th>TIPO DATO</th>';
+        cabeza += '<th></th>';
+        cabeza += '</tr>';
+        var datosm = [{
+            "data": "id_pgta"
+        }, {
+            "data": "pregunta"
+        }, {
+            "data": "nomb_rpta"
+        }, {
+            "data": "tipo_dato"
+        }];
+        $('#cabeza').html(cabeza);
+        listar(n_t, datosm);
+    }
 }
-var datosm = [{
-    "data": "id_pgta"
-}, {
-    "data": "nomb_pgta"
-}, {
-    "data": "estado_pgta"
-}];
 var idioma_esp = {
     "sProcessing": "Procesando...",
     "sLengthMenu": 'Mostrar <select>' + '<option value="5">5</option>' + '<option value="10">10</option>' + '<option value="15">15</option>' + '<option value="20">20</option>' + '<option value="-1">All</option>' + '</select> registros',
@@ -90,3 +90,5 @@ var idioma_esp = {
 function tablapregunta(nombreTabla) {
     listarcabecera(nombreTabla);
 }
+
+function borrarTabla() {}

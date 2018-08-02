@@ -286,7 +286,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:Abrir_Form_Respuesta()">
+                                        <a onclick="tablapregunta('respuesta')" href="javascript:Abrir_Form_Respuesta()">
                                             Respuestas
                                         </a>
                                     </li>
@@ -420,8 +420,8 @@ echo '
 	                <div class="modal-dialog modal-lg">
 	                    <div class="modal-content">
 	                        <div class="modal-header">
-	                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Large modal</h5>
-	                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	                            <h5 class="modal-title mt-0" id="mySmallModalLabel">Large modal</h5>
+	                            <button onclick="borrarTabla()" data-toggle="modal" data-backdrop="static" data-keyboard="false" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 	                        </div>
 	                        <div class="modal-body">
 

@@ -6,7 +6,7 @@ try {
 
     $consulta_tabla = new ConsultaTablas();
 
-    $operacion = $_POST['Operacion'];
+    $operacion = $_REQUEST['Operacion'];
     // $operacion = 'Listar_data';
 
     if ($operacion == "Listar_data") {
@@ -14,7 +14,7 @@ try {
         $resultado = $consulta_tabla->Listar_Tablas();
         echo $resultado;
     }
-    if ($operacion == "Listar_Cabeza") {
+    if ($operacion == "Listar_tablas_n") {
         $tabla     = $_POST['tabla'];
         $resultado = $consulta_tabla->Listar_Tablas_X($tabla);
         echo $resultado;
