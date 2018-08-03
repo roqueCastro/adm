@@ -33,3 +33,13 @@ function Abrir_Form_Contacto() {
         });
     });
 }
+
+function Abrir_Ventana() {
+    $("#mySmallModalLabel").html('Informacion evento');
+    $('.modal-body').load('Vistas/marcador_datos.php', function() {
+        $('#Frm_Admin').modal({
+            show: true
+        });
+        listarEventos();
+    });
+}

@@ -29,13 +29,13 @@ function showAllCollages(allData) {
         //
         //
         var content = document.createElement('div');
-        var titulo = document.createElement('h6');
-        titulo.href = 'https://www.google.com/';
+        //var titulo = document.createElement('h6');
+        //titulo.href = 'https://www.google.com/';
         //
         /*strong.textContent = data.nomb_encta;
         content.appendChild(strong);*/
-        titulo.textContent = data.nomb_encta;
-        content.appendChild(titulo);
+        //titulo.textContent = data.nomb_encta;
+        //content.appendChild(titulo);
         //
         ////
         //
@@ -56,6 +56,15 @@ function showAllCollages(allData) {
         //
         //////
         //
+        var center = document.createElement('center');
+        //
+        var inflarVista = document.createElement('a');
+        inflarVista.textContent = 'Ver +';
+        inflarVista.href = 'javascript:Abrir_Ventana()';
+        //
+        center.appendChild(inflarVista);
+        //
+        content.appendChild(center);
         var coordenadas = new google.maps.LatLng(data.latitud, data.longitud);
         var optionMap = {
             position: coordenadas,

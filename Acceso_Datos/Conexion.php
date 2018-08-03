@@ -8,6 +8,10 @@ class Conecar_bd
     private $usuario = 'bomberos';
     private $pass    = 'juanjose1201';
     private $bbdd    = 'bomberos';
+    /*private $host    = 'localhost';
+    private $usuario = 'root';
+    private $pass    = '';
+    private $bbdd    = 'bomberos';*/
 
     public function Realizar_Conexion()
     {

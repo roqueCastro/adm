@@ -417,27 +417,27 @@ echo '
             <!--  end container -->
             <!---------------------------------------------------------- inicio de modals ------------------------------------------------>
                <div id="Frm_Admin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	                <div class="modal-dialog modal-lg">
-	                    <div class="modal-content">
-	                        <div class="modal-header">
-	                            <h5 class="modal-title mt-0" id="mySmallModalLabel">Large modal</h5>
-	                            <button onclick="borrarTabla()" data-toggle="modal" data-backdrop="static" data-keyboard="false" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	                        </div>
-	                        <div class="modal-body">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="mySmallModalLabel">Large modal</h5>
+                                <button onclick="borrarTabla()" data-toggle="modal" data-backdrop="static" data-keyboard="false" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                 <div id="accordion" role="tablist" aria-multiselectable="true"></div>
+                            </div>
+                            <div class="modal-content">
+                                <table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead id="cabeza">
 
-	                        </div>
-	                        <div class="modal-content">
-				            	<table id="tables" class="table table-striped table-bordered" cellspacing="0" width="100%">
-					                <thead id="cabeza">
-
-					                </thead>
-					                <tbody>
-					                </tbody>
-				            	</table>
-	                    	</div>
-	                    </div><!-- /.modal-content -->
-	                </div><!-- /.modal-dialog -->
-	            </div><!-- /.modal -->
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
         </div>
         <!--end donde va el mapa completo -->
         <!-- Footer -->
@@ -513,4 +513,5 @@ echo '
         </style>
     </body>
     <script type="text/javascript" src="js/consulta_tablas.js"></script>
+    <script type="text/javascript" src="js/marcador_datos.js"></script>
 </html>

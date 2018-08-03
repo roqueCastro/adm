@@ -19,113 +19,44 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript">
-        $('#rojo').hide();
-        $('#verde').hide();
-        $('#respuestasM').hide();
-    </script>
 
 </head>
-
-
 <body>
 
+   <div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="card">
+<?php
 
-    <div class="card m-b-30">
-     <!--  ----------------------Mensaje de alertas--------------------------- -->
-     <div class="alert alert-danger alert-dismissible fade show" id="rojo" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">
-                &times;
-            </span>
-        </button>
-        <strong id="error">
-            Error..
-        </strong>
+?>
 
+        <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0 mt-0 font-16">
+                <a data-toggle="collapse" data-parent="#accordion"
+                href="#collapseOne" aria-expanded="true"
+                aria-controls="collapseOne" class="text-dark">
+                Collapsible Group Item #1
+                 </a>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" role="tabpanel"
+        aria-labelledby="headingOne">
+            <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck
+                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee
+                nulla assumenda shoreditch et. Nihil anim keffiyeh
+                helvetica, craft beer labore wes anderson cred nesciunt
+                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                Leggings occaecat craft beer farm-to-table, raw denim
+                aesthetic synth nesciunt you probably haven't heard of them
+                accusamus labore sustainable VHS.
+            </div>
+        </div>
     </div>
-    <div id="verde" class="alert alert-success" role="alert">
-        <strong id="correcto">Correcto</strong>
-    </div>
-    <!--  Mensaje de alertas -->
-    <form class="" method="POST" action="">
-        <div class="form-group">
-            <label>Pregunta</label>
-            <div class="form-group">
-                <select id="pregunta" required class="form-control">
-
-                </select>
-            </div>
-            <!--  <input type="text" class="form-control" required placeholder="Type something"/> -->
-        </div>
-        <div class="form-group" id="respuestasM">
-            <label>Respuestas</label>
-            <div>
-                <textarea id="respuestas" readonly="readonly"   class="form-control" rows="5">
-                </textarea>
-            </div>
-        </div>
-
-        <div class="form-group" id="multipleOpcion">
-            <label>Tipo de dato</label>
-            <div class="form-group">
-                <select id="tipo_dato" required class="form-control">
-                    <option value="0">Seleccione</option>
-                    <option value="numerico">numerico</option>
-                    <option value="texto">texto</option>
-                </select>
-            </div>
-
-        </div>
-
-        <div class="form-group" id="nombreRespuestaOpcion">
-            <label>Nombre de la respuesta</label>
-            <div>
-                <textarea id="nombre_respuesta" required class="form-control" rows="5"></textarea>
-            </div>
-        </div>
-
-        <div class="form-group" id="estadoOpcion">
-            <label>Estado de la respuesta</label>
-            <div class="form-group">
-                <select id="estado" required class="form-control">
-                    <option value="1">Activo</option>
-                    <option value="0">Inactivo</option>
-                </select>
-            </div>
-
-        </div>
-
-
-    </form>
-
-</div>
 </div>
 
-
-<!-- jQuery  -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/modernizr.min.js"></script>
-<script src="assets/js/waves.js"></script>
-<script src="assets/js/jquery.slimscroll.js"></script>
-<script src="assets/js/jquery.nicescroll.js"></script>
-<script src="assets/js/jquery.scrollTo.min.js"></script>
-
-<!-- XEditable Plugin -->
-<script src="assets/plugins/moment/moment.js"></script>
-<script type="text/javascript" src="assets/plugins/x-editable/js/bootstrap-editable.min.js"></script>
-<script type="text/javascript" src="assets/pages/xeditable.js"></script>
-
-<!-- JS para codigo MVC -->
-<script src="js/respuestas.js" type="text/javascript"></script>
-
-<!-- App js -->
-<script src="assets/js/app.js"></script>
-
-<!-- Sweet-Alert  -->
-<script src="assets/plugins/sweet-alert2/sweetalert2.js"></script>
-<script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
 </body>
 </html>
