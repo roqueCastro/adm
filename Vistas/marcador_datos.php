@@ -25,8 +25,20 @@
 
    <div id="accordion" role="tablist" aria-multiselectable="true">
     <div class="card">
-<?php
 
+ <?php
+require '../bomberos.php';
+$bomb         = new bomberos;
+$coll['data'] = $bomb->obtenerInfoMarcador();
+$coll         = json_encode($coll, true);
+
+$result      = json_decode($coll, true);
+$informacion = $result['data'];
+
+foreach ($informacion as $infor) {
+    $data = $infor['ID'];
+    echo $data . "<br>";
+}
 ?>
 
         <div class="card-header" role="tab" id="headingOne">
@@ -57,6 +69,6 @@
         </div>
     </div>
 </div>
-
+ <script type="text/javascript" src="js/marcador_datos.js"></script>
 </body>
 </html>

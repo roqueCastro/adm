@@ -49,7 +49,7 @@ function showAllCollages(allData) {
             nameFoto = "imgnull.gif";
             img.src = 'img/' + nameFoto + '';
         }
-        img.style.width = '70px';
+        img.style.width = '100px';
         content.appendChild(img);
         //
         /////

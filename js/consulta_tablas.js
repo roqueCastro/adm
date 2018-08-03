@@ -1,10 +1,10 @@
 var listar = function(n_t, datosm) {
     var table = $('#tables').DataTable();
+    $('#Frm_Admin').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
     alert(table);
-    /* $('#Frm_Admin').modal({
-         backdrop: 'static',
-         keyboard: false
-     });*/
     table.destroy();
     table = $("#tables").DataTable({
         "bDeferRender": true,
@@ -91,4 +91,7 @@ function tablapregunta(nombreTabla) {
     listarcabecera(nombreTabla);
 }
 
-function borrarTabla() {}
+function borrarTabla() {
+    $("#tables tr").remove();
+    alert('limpio');
+}

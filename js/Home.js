@@ -40,6 +40,5 @@ function Abrir_Ventana() {
         $('#Frm_Admin').modal({
             show: true
         });
-        listarEventos();
     });
 }

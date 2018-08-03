@@ -416,7 +416,8 @@ echo '
             </div>
             <!--  end container -->
             <!---------------------------------------------------------- inicio de modals ------------------------------------------------>
-               <div id="Frm_Admin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+               <div id="Frm_Admin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="ModalCrear" data-backdrop="static"
+  data-keyboard="false">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -513,5 +514,5 @@ echo '
         </style>
     </body>
     <script type="text/javascript" src="js/consulta_tablas.js"></script>
-    <script type="text/javascript" src="js/marcador_datos.js"></script>
+
 </html>

@@ -72,4 +72,23 @@ class bomberos
 
     }
 
+    public function obtenerInfoMarcador()
+    {
+        try {
+
+            $sql = "SELECT * FROM bomberos.resultado_encuesta WHERE ID = 450";
+            $stm = $this->conn->prepare($sql);
+
+            if ($stm->execute()) {
+                return $stm->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                return "Error de consulta";
+            }
+
+        } catch (Exeption $e) {
+            die('Error' . $e->getMessage());
+        }
+
+    }
+
 }
