@@ -76,7 +76,7 @@ class bomberos
     {
         try {
 
-            $sql = "SELECT * FROM bomberos.resultado_encuesta WHERE ID = 450";
+            $sql = "SELECT * FROM resultados WHERE ID = 450";
             $stm = $this->conn->prepare($sql);
 
             if ($stm->execute()) {

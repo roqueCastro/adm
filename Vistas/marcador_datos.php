@@ -34,19 +34,18 @@ $coll         = json_encode($coll, true);
 
 $result      = json_decode($coll, true);
 $informacion = $result['data'];
-
+$conta       = 0;
 foreach ($informacion as $infor) {
-    $data = $infor['ID'];
-    echo $data . "<br>";
-}
-?>
 
-        <div class="card-header" role="tab" id="headingOne">
+    if ($conta == 0) {
+
+        ?>
+    <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0 mt-0 font-16">
                 <a data-toggle="collapse" data-parent="#accordion"
                 href="#collapseOne" aria-expanded="true"
                 aria-controls="collapseOne" class="text-dark">
-                Collapsible Group Item #1
+                <?php echo $data = $infor['Evento']; ?>
                  </a>
             </h5>
         </div>
@@ -54,17 +53,31 @@ foreach ($informacion as $infor) {
         <div id="collapseOne" class="collapse show" role="tabpanel"
         aria-labelledby="headingOne">
             <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia
-                aute, non cupidatat skateboard dolor brunch. Food truck
-                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                sunt aliqua put a bird on it squid single-origin coffee
-                nulla assumenda shoreditch et. Nihil anim keffiyeh
-                helvetica, craft beer labore wes anderson cred nesciunt
-                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them
-                accusamus labore sustainable VHS.
+                <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <tr>
+                        <td>EVENTO</td>
+                        <td>RESULTADO</td>
+
+                    </tr>
+
+<?php
+}
+
+    echo '<tr>';
+    echo '<td>' . $data = $infor['Encuesta'] . '</td>';
+    echo '<td>' . $data = $infor['Resultado'] . '</td>';
+
+    echo '</tr>';
+    ?>
+
+
+
+    <?php
+$conta = $conta + 1;
+}
+?>
+
+                </table>
             </div>
         </div>
     </div>

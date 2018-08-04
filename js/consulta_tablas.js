@@ -92,6 +92,6 @@ function tablapregunta(nombreTabla) {
 }
 
 function borrarTabla() {
-    $("#tables tr").remove();
-    alert('limpio');
+    window,
+    location = "index.php";
 }
