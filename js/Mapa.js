@@ -2,6 +2,23 @@ var map;
 var geocoder;
 
 function initMap() {
+    $.ajax({
+        url: 'Controladores/Control_Evento.php',
+        type: 'POST',
+        dataType: 'html',
+        data: {
+            Operacion: 'listar_coordenadas'
+        },
+        success: function(datos) {
+            mpa(datos);
+        },
+        error: function(xhr, status) {
+            alert("Error: " + xhr + " Estatus: " + status)
+        }
+    });
+}
+
+function mpa(datosJson) {
     // variable para direccion principal de mapa
     var pitalito = {
         lat: 1.8522305999999997,
@@ -12,6 +29,7 @@ function initMap() {
         zoom: 10,
         center: pitalito,
         mapTypeId: google.maps.MapTypeId.HYBRID
+        /*mapTypeId: google.maps.MapTypeId.ROADMAP*/
     });
     //marcador para mostrar el punto exacto de la direcion
     /* var marker = new google.maps.Marker({
@@ -19,7 +37,7 @@ function initMap() {
          map: mapa
      });*/
     // variable para cargar el json con los datos de los colegios..
-    var allData = JSON.parse(document.getElementById('data').innerHTML);
+    var allData = JSON.parse(datosJson);
     showAllCollages(allData);
 }
 
@@ -60,7 +78,7 @@ function showAllCollages(allData) {
         //
         var inflarVista = document.createElement('a');
         inflarVista.textContent = 'Ver +';
-        inflarVista.href = 'javascript:Abrir_Ventana()';
+        inflarVista.href = 'javascript:Abrir_Ventana(' + data.id_evento + ')';
         //
         center.appendChild(inflarVista);
         //

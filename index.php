@@ -46,8 +46,8 @@
                         <!--</a>-->
                         <!-- Image Logo -->
                         <a href="index.php" class="logo">
-                            <img src="assets/images/logo-sm.png" alt="" height="22" class="logo-small"/>
-                            <img src="assets/images/logo.png" alt="" height="24" class="logo-large"/>
+                            <img src="assets/images/logo_sig/logo.png" alt="" height="35" class="logo-small"/>
+                            <img src="assets/images/logo_sig/logo.png" alt="" height="50" class="logo-large"/>
                         </a>
                     </div>
                     <!-- End Logo container-->
@@ -55,7 +55,7 @@
                         <!-- Search input -->
                         <div class="search-wrap" id="search-wrap">
                             <div class="search-bar">
-                                <input class="search-input" type="search" placeholder="Search"/>
+                                <input class="alert-warning" type="search" placeholder="Search"/>
                                 <a href="#" class="close-search toggle-search" data-target="#search-wrap">
                                     <i class="mdi mdi-close-circle">
                                     </i>
@@ -291,7 +291,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:Abrir_Form_Encuestas()">
+                                        <a onclick="tablapregunta('encuesta')" href="javascript:Abrir_Form_Encuestas()">
                                             Encuestas
                                         </a>
                                     </li>
@@ -335,12 +335,12 @@
                                 <a href="#">
                                     <i class="ti-crown">
                                     </i>
-                                    Advanced UI
+                                    Estadisticas
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="advanced-animation.html">
-                                            Animation
+                                        <a href="estadisticas/mes.php">
+                                            Mes
                                         </a>
                                     </li>
                                     <li>
@@ -396,17 +396,7 @@
             <div class="container-fluid">
                 <!-- container para mostrar mapa -->
                 <div class="containerr">
-                    <?php require 'bomberos.php';
-$bomb = new bomberos;
-$coll = $bomb->
-    obtenerColegios();
-$coll = json_encode($coll, true);
-echo '
-                    <div id="data">
-                        ' . $coll . '
-                    </div>
-                    ';
-?>
+
                     <!-- mostrar mapa -->
                     <div id="map">
                     </div>
@@ -495,7 +485,7 @@ echo '
         <!-- Control de mapa -->
         <script src="js/Mapa.js" type="text/javascript"> </script>
         <!-- --------------script para cargar el mapa ---------->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFIsN0gTHyoRtOZpXh6OT2NaGFySyqXpM&callback=initMap" type="text/javascript">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgpYQ8C90Zr8Pg5giypZcc9MneRR3ejkA&callback=initMap" type="text/javascript">
         </script>
         <!-- --------------estilos de datos ------------->
         <style type="text/css">

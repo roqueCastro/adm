@@ -106,7 +106,7 @@ function Registrar_Respuesta() {
                     if (datos == "Registro exitosamente.") {
                         $('#nombre_respuesta').val('');
                         correctDatos(datos);
-                        cargar(pregunta);
+                        table.ajax.reload();
                     } else {
                         errorDatos(datos);
                     }

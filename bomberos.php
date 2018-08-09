@@ -72,12 +72,13 @@ class bomberos
 
     }
 
-    public function obtenerInfoMarcador()
+    public function obtenerInfoMarcador($id)
     {
         try {
 
-            $sql = "SELECT * FROM resultados WHERE ID = 450";
+            $sql = "SELECT * FROM bomberos.resultado_encuesta WHERE ID = ?";
             $stm = $this->conn->prepare($sql);
+            $stm->bindParam(1, $id, PDO::PARAM_INT);
 
             if ($stm->execute()) {
                 return $stm->fetchAll(PDO::FETCH_ASSOC);

@@ -51,7 +51,15 @@ class ConsultaTablas
         }
 
         if ($this->nombre_tabla == "encuesta") {
-            echo $this->nombre_tabla;
+            $Sql      = "SELECT id_encuesta, nomb_encta, if(est_encta=1,'Activo','Inactivo') as est_encta  FROM bomberos.encuesta";
+            $Consulta = $this->conn->prepare($Sql);
+
+            if ($Consulta->execute()) {
+                $result['data'] = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+                echo json_encode($result);
+            } else {
+                echo 'No se ejecuto';
+            }
         }
 
         if ($this->nombre_tabla == "contacto") {

@@ -1,10 +1,45 @@
+var Eliminar = function(tbody, table) {
+    alert('eliminar');
+    $(tbody).on("click", "button.eliminar", function() {
+        var data = table.row($(this).parents("tr")).data();
+        alert(data.ID);
+        // $('#msg').html("<center><img src='Iconos/barra.gif' width='30' height='30' ></center>");
+        /*   $.post('Cont_Pregunta', {
+               id: data.id,
+               Eliminar_Pregunta: "Eliminar_Pregunta"
+           }, function(responseText) {
+               Cargar_Data_Table();
+               $('#msg').html(responseText);
+           });*/
+    });
+};
+var Actializar = function(tbody, table) {
+    $(tbody).on("click", "button.editar", function() {
+        alert('Edit');
+        var data = table.row($(this).parents("tr")).data();
+        $('#msg').html("<center><img src='Iconos/barra.gif' width='30' height='30' ></center>");
+        alert(data.ID);
+        /* $.post('Cont_Pregunta', {
+             id: data.id,
+             Buscar_Pregunta_Id: "Buscar_Pregunta_Id"
+         }, function(responseText) {
+             //  Cargar_Data_Table();  
+             var cadena = responseText.split(";");
+             $('#id_preg').val(cadena[0]);
+             $('#nom_pre').val(cadena[1]);
+             $('#tipo_pregunta').val(cadena[2]);
+             $('#estado_pregunta').val(cadena[3]);
+             $("#Frm_Reg_Preguntas").show();
+             $('#msg').html("Resultado de la busqueda");
+         });*/
+    });
+};
 var listar = function(n_t, datosm) {
     var table = $('#tables').DataTable();
     $('#Frm_Admin').modal({
         backdrop: 'static',
         keyboard: false
     });
-    alert(table);
     table.destroy();
     table = $("#tables").DataTable({
         "bDeferRender": true,
@@ -21,6 +56,8 @@ var listar = function(n_t, datosm) {
         "columns": datosm,
         "oLanguage": idioma_esp
     });
+    Eliminar("#datatable tbody", table);
+    Actializar("#datatable tbody", table);
 }
 var listarcabecera = function(n_t) {
     if (n_t == "pregunta") {
@@ -29,7 +66,6 @@ var listarcabecera = function(n_t) {
         cabeza += '<th>PREGUNTA</th>';
         cabeza += '<th>ESTADO</th>';
         cabeza += '<th></th>';
-        cabeza += '<th></th>';
         cabeza += '</tr>';
         var datosm = [{
             "data": "id_pgta"
@@ -37,6 +73,8 @@ var listarcabecera = function(n_t) {
             "data": "nomb_pgta"
         }, {
             "data": "estado_pgta"
+        }, {
+            "defaultContent": "<button type='button' class='editar btn btn-primary'><i class='fa fa-pencil-square-o'></i></button>  <button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"
         }];
         $('#cabeza').html(cabeza);
         listar(n_t, datosm);
@@ -50,13 +88,30 @@ var listarcabecera = function(n_t) {
         cabeza += '<th></th>';
         cabeza += '</tr>';
         var datosm = [{
-            "data": "id_pgta"
+            "data": "id_rpta"
         }, {
-            "data": "pregunta"
+            "data": "nomb_pgta"
         }, {
             "data": "nomb_rpta"
         }, {
             "data": "tipo_dato"
+        }];
+        $('#cabeza').html(cabeza);
+        listar(n_t, datosm);
+    }
+    if (n_t == "encuesta") {
+        var cabeza = '<tr>';
+        cabeza += '<th>ID</th>';
+        cabeza += '<th>ENCUESTA</th>';
+        cabeza += '<th>ESTADO</th>';
+        cabeza += '<th></th>';
+        cabeza += '</tr>';
+        var datosm = [{
+            "data": "id_encuesta"
+        }, {
+            "data": "nomb_encta"
+        }, {
+            "data": "est_encta"
         }];
         $('#cabeza').html(cabeza);
         listar(n_t, datosm);
@@ -92,6 +147,5 @@ function tablapregunta(nombreTabla) {
 }
 
 function borrarTabla() {
-    window,
-    location = "index.php";
+    window.location = "index.php";
 }

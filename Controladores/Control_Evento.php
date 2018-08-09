@@ -23,6 +23,11 @@ try {
         $resultado = $even->Listar_Eventos();
         echo $resultado;
     }
+    if ($operacion == "listar_coordenadas") {
+
+        $resultado = $even->Listar_Coordenadas();
+        echo $resultado;
+    }
 
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();

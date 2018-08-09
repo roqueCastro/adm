@@ -28,18 +28,20 @@
 
  <?php
 require '../bomberos.php';
+$id_evento    = $_REQUEST['id'];
 $bomb         = new bomberos;
-$coll['data'] = $bomb->obtenerInfoMarcador();
+$coll['data'] = $bomb->obtenerInfoMarcador($id_evento);
 $coll         = json_encode($coll, true);
 
 $result      = json_decode($coll, true);
 $informacion = $result['data'];
-$conta       = 0;
-foreach ($informacion as $infor) {
+if ($informacion != null) {
+    $conta = 0;
+    foreach ($informacion as $infor) {
 
-    if ($conta == 0) {
+        if ($conta == 0) {
 
-        ?>
+            ?>
     <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0 mt-0 font-16">
                 <a data-toggle="collapse" data-parent="#accordion"
@@ -63,23 +65,32 @@ foreach ($informacion as $infor) {
 <?php
 }
 
-    echo '<tr>';
-    echo '<td>' . $data = $infor['Encuesta'] . '</td>';
-    echo '<td>' . $data = $infor['Resultado'] . '</td>';
+        echo '<tr>';
+        echo '<td>' . $data = $infor['Encuesta'] . '</td>';
+        echo '<td>' . $data = $infor['Resultado'] . '</td>';
 
-    echo '</tr>';
-    ?>
+        echo '</tr>';
+        ?>
 
 
 
     <?php
 $conta = $conta + 1;
-}
-?>
+    }
+    ?>
 
                 </table>
             </div>
         </div>
+<?php
+} else {
+    ?>
+    <div class="alert alert-warning" role="alert">
+        <strong>No existen</strong> datos para mostrar.
+    </div>
+    <?php
+}
+?>
     </div>
 </div>
  <script type="text/javascript" src="js/marcador_datos.js"></script>

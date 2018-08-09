@@ -34,9 +34,10 @@ function Abrir_Form_Contacto() {
     });
 }
 
-function Abrir_Ventana() {
+function Abrir_Ventana(id_even) {
+    //$('#roque').html(id_even);
     $("#mySmallModalLabel").html('Informacion evento');
-    $('.modal-body').load('Vistas/marcador_datos.php', function() {
+    $('.modal-body').load("Vistas/marcador_datos.php?id=" + id_even + " ", function() {
         $('#Frm_Admin').modal({
             show: true
         });

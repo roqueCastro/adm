@@ -69,7 +69,7 @@
 
         <div class="form-group">
             <div>
-                <button type="button" onclick="Registrar_Encuesta()" class="btn btn-primary">
+                <button type="button" onclick="Registrar_Contactos()" class="btn btn-primary">
                     Enviar
                 </button>
                 <button type="button" onclick="javascript:Abrir_Form_Consulta_Preguntas()" class="btn btn-secondary waves-effect">
@@ -100,7 +100,7 @@
 <script type="text/javascript" src="assets/pages/xeditable.js"></script>
 
 <!-- JS para codigo MVC -->
-<script src="js/encuestas.js" type="text/javascript"></script>
+<script src="js/contactos.js" type="text/javascript"></script>
 
 <!-- App js -->
 <script src="assets/js/app.js"></script>
