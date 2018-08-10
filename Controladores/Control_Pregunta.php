@@ -33,6 +33,13 @@ try {
         $resultado = $pregunta->Listar_PreguntasID($idPre);
         echo $resultado;
     }
+    if ($operacion == "EliminarID") {
+        $idPre = $_POST['id'];
+        // $idPre = "63";
+
+        $resultado = $pregunta->EliminarID($idPre);
+        echo $resultado;
+    }
 
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();

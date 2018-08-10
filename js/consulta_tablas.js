@@ -1,41 +1,6 @@
-var Eliminar = function(tbody, table) {
-    alert('eliminar');
-    $(tbody).on("click", "button.eliminar", function() {
-        var data = table.row($(this).parents("tr")).data();
-        alert(data.ID);
-        // $('#msg').html("<center><img src='Iconos/barra.gif' width='30' height='30' ></center>");
-        /*   $.post('Cont_Pregunta', {
-               id: data.id,
-               Eliminar_Pregunta: "Eliminar_Pregunta"
-           }, function(responseText) {
-               Cargar_Data_Table();
-               $('#msg').html(responseText);
-           });*/
-    });
-};
-var Actializar = function(tbody, table) {
-    $(tbody).on("click", "button.editar", function() {
-        alert('Edit');
-        var data = table.row($(this).parents("tr")).data();
-        $('#msg').html("<center><img src='Iconos/barra.gif' width='30' height='30' ></center>");
-        alert(data.ID);
-        /* $.post('Cont_Pregunta', {
-             id: data.id,
-             Buscar_Pregunta_Id: "Buscar_Pregunta_Id"
-         }, function(responseText) {
-             //  Cargar_Data_Table();  
-             var cadena = responseText.split(";");
-             $('#id_preg').val(cadena[0]);
-             $('#nom_pre').val(cadena[1]);
-             $('#tipo_pregunta').val(cadena[2]);
-             $('#estado_pregunta').val(cadena[3]);
-             $("#Frm_Reg_Preguntas").show();
-             $('#msg').html("Resultado de la busqueda");
-         });*/
-    });
-};
+var table;
 var listar = function(n_t, datosm) {
-    var table = $('#tables').DataTable();
+    table = $('#tables').DataTable();
     $('#Frm_Admin').modal({
         backdrop: 'static',
         keyboard: false
@@ -56,8 +21,48 @@ var listar = function(n_t, datosm) {
         "columns": datosm,
         "oLanguage": idioma_esp
     });
-    Eliminar("#datatable tbody", table);
-    Actializar("#datatable tbody", table);
+}
+/*----------------click en el boton editar-----------------*/
+$(document).on('click', '.btn-eliminar-pregunta', function(e) {
+    e.preventDefault();
+    var trData = $(this).parent().parent().children().first().text();
+    eliminar(trData, "pregunta");
+    // table.ajax.reload();
+});
+
+function eliminar(id, nomT) {
+    var mensaje = confirm("¿Desea eliminar?");
+    //Detectamos si el usuario acepto el mensaje
+    if (mensaje) {
+        if (nomT == "pregunta") {
+            eliminar(id, nomT);
+        }
+    }
+    //Detectamos si el usuario denegó el mensaje
+    else {}
+}
+
+function eliminar(id, ntabla) {
+    if (ntabla == "pregunta") {
+        var Url = 'Controladores/Control_Pregunta.php';
+        var operation = 'EliminarID';
+    }
+    $.ajax({
+        url: Url,
+        type: 'POST',
+        dataType: 'html',
+        data: {
+            Operacion: operation,
+            id: id
+        },
+        success: function(datos) {
+            alert(datos);
+        },
+        error: function(xhr, status) {
+            alert(status);
+            // $('#msg').html();
+        }
+    });
 }
 var listarcabecera = function(n_t) {
     if (n_t == "pregunta") {
@@ -74,7 +79,7 @@ var listarcabecera = function(n_t) {
         }, {
             "data": "estado_pgta"
         }, {
-            "defaultContent": "<button type='button' class='editar btn btn-primary'><i class='fa fa-pencil-square-o'></i></button>  <button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"
+            "defaultContent": "<button type='button' title='Eliminar' class='btn btn-danger btn-eliminar-pregunta' ><i class='fa fa-trash'></i></button>"
         }];
         $('#cabeza').html(cabeza);
         listar(n_t, datosm);
@@ -85,7 +90,7 @@ var listarcabecera = function(n_t) {
         cabeza += '<th>PREGUNTA</th>';
         cabeza += '<th>RESPUESTA</th>';
         cabeza += '<th>TIPO DATO</th>';
-        cabeza += '<th></th>';
+        cabeza += '<th>Acciones</th>';
         cabeza += '</tr>';
         var datosm = [{
             "data": "id_rpta"

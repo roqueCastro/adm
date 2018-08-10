@@ -50,6 +50,25 @@ class Pregunta
         }
 
     }
+    public function EliminarID($id)
+    {
+        $bd       = new Conecar_bd();
+        $Conexion = $bd->Realizar_Conexion();
+        $encuesta = "1";
+
+        $Sql      = "UPDATE pregunta SET estado_pgta=2 WHERE encuesta2=? and id_pgta=?";
+        $Consulta = $Conexion->prepare($Sql);
+        $Consulta->bindParam(1, $encuesta, PDO::PARAM_INT);
+        $Consulta->bindParam(2, $id, PDO::PARAM_INT);
+
+        if ($Consulta->execute()) {
+            echo "Eliminacion exitosa.";
+
+        } else {
+            echo "NO se ejecuto Eliminacion";
+        }
+
+    }
 
     public function Registrar_Preguntas($nom, $esta, $ti_Pre, $encues)
     {
