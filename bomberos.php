@@ -76,7 +76,8 @@ class bomberos
     {
         try {
 
-            $sql = "SELECT * FROM resultados WHERE ID = ?";
+            $sql = "SELECT * FROM resultado_encuesta
+             WHERE ID = ?";
             $stm = $this->conn->prepare($sql);
             $stm->bindParam(1, $id, PDO::PARAM_INT);
 

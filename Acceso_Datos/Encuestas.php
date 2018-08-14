@@ -42,7 +42,7 @@ class Encuestas
 
             $sql      = "INSERT INTO encuesta (nomb_encta ,est_encta)VALUES(?,?)";
             $consulta = $conexion->prepare($sql);
-            $consulta->bindParam(1, $no_en, PDO::PARAM_INT);
+            $consulta->bindParam(1, $no_en, PDO::PARAM_STR);
             $consulta->bindParam(2, $esta_en, PDO::PARAM_STR);
 
             if ($consulta->execute()) {

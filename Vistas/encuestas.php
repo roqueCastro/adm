@@ -51,7 +51,7 @@
         <div class="form-group">
             <label>Nombre de la encuesta</label>
             <div>
-                <textarea id="nombre_encuesta" required class="form-control" rows="5"></textarea>
+                <textarea id="nombre_encuesta" required class="form-control" rows="1"></textarea>
             </div>
         </div>
 
