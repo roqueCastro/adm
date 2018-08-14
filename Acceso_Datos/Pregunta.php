@@ -18,7 +18,7 @@ class Pregunta
         $bd       = new Conecar_bd();
         $Conexion = $bd->Realizar_Conexion();
 
-        $Sql      = "SELECT * FROM pregunta WHERE encuesta2=1";
+        $Sql      = "SELECT * FROM pregunta WHERE encuesta2=1 and estado_pgta=1";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -30,16 +30,32 @@ class Pregunta
         }
 
     }
-    public function Listar_PreguntasID($id)
+    public function Listar_PreguntasID($id, $encuesta)
     {
         $bd       = new Conecar_bd();
         $Conexion = $bd->Realizar_Conexion();
-        $encuesta = "1";
 
         $Sql      = "SELECT * FROM pregunta WHERE encuesta2=? and id_pgta=?";
         $Consulta = $Conexion->prepare($Sql);
         $Consulta->bindParam(1, $encuesta, PDO::PARAM_INT);
         $Consulta->bindParam(2, $id, PDO::PARAM_INT);
+
+        if ($Consulta->execute()) {
+            $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($results);
+
+        } else {
+            echo "NO se ejecuto";
+        }
+
+    }
+    public function Listar_PreguntasIDEnc($id)
+    {
+        $bd       = new Conecar_bd();
+        $Conexion = $bd->Realizar_Conexion();
+
+        $Sql      = "SELECT * FROM pregunta WHERE encuesta2=$id and estado_pgta=1";
+        $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
             $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);

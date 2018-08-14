@@ -27,6 +27,7 @@
         $('#multipleOpcion').hide();
         $('#btnEnviar').hide();
         $('#estadoOpcion').hide();
+        $('#pregunta').hide();
     </script>
 
 </head>
@@ -54,6 +55,15 @@
     <!--  Mensaje de alertas -->
     <form class="" method="POST" action="">
         <div class="form-group">
+            <label>Encuesta</label>
+            <div class="form-group">
+                <select id="encuesta" required class="form-control">
+
+                </select>
+            </div>
+            <!--  <input type="text" class="form-control" required placeholder="Type something"/> -->
+        </div>
+         <div class="form-group">
             <label>Pregunta</label>
             <div class="form-group">
                 <select id="pregunta" required class="form-control">

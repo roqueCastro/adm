@@ -27,10 +27,18 @@ try {
         echo $resultado;
     }
     if ($operacion == "Listar_PreguntasID") {
-        $idPre = $_POST['id_pregunta'];
+        $idPre     = $_POST['id_pregunta'];
+        $id_encues = $_POST['id_encues'];
         // $idPre = "63";
 
-        $resultado = $pregunta->Listar_PreguntasID($idPre);
+        $resultado = $pregunta->Listar_PreguntasID($idPre, $id_encues);
+        echo $resultado;
+    }
+    if ($operacion == "Listar_PreguntasIdEncuesta") {
+        $idEnc = $_POST['encuesta2'];
+        // $idPre = "63";
+
+        $resultado = $pregunta->Listar_PreguntasIDEnc($idEnc);
         echo $resultado;
     }
     if ($operacion == "EliminarID") {

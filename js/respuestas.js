@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    Listar_Preguntas();
+    Listar_Tipos_Encuestas();
+    listarPreguntas();
+    // Listar_Preguntas();
     listarRespuestas();
 });
 // LISTAR texarea
@@ -7,22 +9,47 @@ function listarRespuestas() {
     $("#pregunta").change(function() {
         $("#pregunta option:selected").each(function() {
             id_pregunta = $(this).val();
+            id_encues = $("#encuesta").val();
             if (id_pregunta == 0) {
                 $('#respuestasM').hide();
             } else {
                 $('#respuestasM').hide();
-                opcionPregunta(id_pregunta);
+                opcionPregunta(id_pregunta, id_encues);
+            }
+        });
+    });
+}
+//
+///
+//
+function listarPreguntas() {
+    $("#encuesta").change(function() {
+        $("#encuesta option:selected").each(function() {
+            id_encuesta = $(this).val();
+            if (id_encuesta == 0) {
+                $('#rojo').hide();
+                $('#verde').hide();
+                $('#respuestasM').hide();
+                $('#nombreRespuestaOpcion').hide();
+                $('#multipleOpcion').hide();
+                $('#btnEnviar').hide();
+                $('#estadoOpcion').hide();
+                $('#pregunta').hide();
+            } else {
+                Listar_Preguntas(id_encuesta);
             }
         });
     });
 }
 //Ajax de listar text area
-var opcionPregunta = function(id_pregunta) {
+var opcionPregunta = function(id_pregunta, id_encues) {
     $.post("Controladores/Control_Pregunta.php", {
         Operacion: 'Listar_PreguntasID',
-        id_pregunta: id_pregunta
+        id_pregunta: id_pregunta,
+        id_encues: id_encues
     }, function(data) {
         var datos = JSON.parse(data);
+        // alert(datos);
         for (var i = 0; i < datos.length; i++) {
             var opcion = datos[i].tipo_pregunta;
         }
@@ -106,7 +133,6 @@ function Registrar_Respuesta() {
                     if (datos == "Registro exitosamente.") {
                         $('#nombre_respuesta').val('');
                         correctDatos(datos);
-                        table.ajax.reload();
                     } else {
                         errorDatos(datos);
                     }
@@ -202,16 +228,18 @@ function Listar_Tipo_Tipo_Pregunta() {
 //
 ////
 ////
-//  Listar_Tipos_Encuestas
-function Listar_Preguntas() {
+//  Listar_preguntas
+function Listar_Preguntas(encuesta2) {
     $.ajax({
         url: 'Controladores/Control_Pregunta.php',
         data: {
-            Operacion: 'Listar_Preguntas'
+            Operacion: 'Listar_PreguntasIdEncuesta',
+            encuesta2: encuesta2
         },
         type: 'POST',
         dataType: 'json',
         success: function(datos) {
+            $('#pregunta').show();
             //creamos el ciclo para recorrer el json y creamos la variable
             // tipo_pre de tipo string y la imprimimos en el select de tipo pregunta
             var dato_imprimir = ' <option value="0">Seleccione</option>';
@@ -219,6 +247,37 @@ function Listar_Preguntas() {
                 dato_imprimir += '<option value="' + datos[i].id_pgta + '">' + datos[i].nomb_pgta + '</option>';
             }
             $('#pregunta').html(dato_imprimir);
+        },
+        error: function(xhr, status) {
+            alert('Disculpe, existió un problema');
+            // $('#msg').html();
+        },
+        // código a ejecutar sin importar si la petición falló o no
+        complete: function(xhr, status) {
+            $('#msg').html('Se listaron todos los eventos..');
+        }
+    });
+}
+/////////////////////////////
+//
+//////////
+//  Listar_Tipos_Encuestas
+function Listar_Tipos_Encuestas() {
+    $.ajax({
+        url: 'Controladores/Control_Encuesta.php',
+        data: {
+            Operacion: 'Listar_Tipos_Encuestas'
+        },
+        type: 'POST',
+        dataType: 'json',
+        success: function(datos) {
+            //creamos el ciclo para recorrer el json y creamos la variable
+            // tipo_pre de tipo string y la imprimimos en el select de tipo pregunta
+            var dato_imprimir = '<option value="0">Seleccione</option>';
+            for (var i = 0; i < datos.length; i++) {
+                dato_imprimir += '<option value="' + datos[i].id_encuesta + '">' + datos[i].nomb_encta + '</option>';
+            }
+            $('#encuesta').html(dato_imprimir);
         },
         error: function(xhr, status) {
             alert('Disculpe, existió un problema');
