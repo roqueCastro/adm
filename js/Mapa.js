@@ -1,7 +1,12 @@
-var map;
-var geocoder;
-
 function initMap() {
+    mpa();
+}
+
+function mpa() {
+    ajaxCoordenadas();
+}
+
+function ajaxCoordenadas() {
     $.ajax({
         url: 'Controladores/Control_Evento.php',
         type: 'POST',
@@ -10,7 +15,8 @@ function initMap() {
             Operacion: 'listar_coordenadas'
         },
         success: function(datos) {
-            mpa(datos);
+            var allData = JSON.parse(datos);
+            showAllCollages(allData);
         },
         error: function(xhr, status) {
             alert("Error: " + xhr + " Estatus: " + status)
@@ -18,7 +24,8 @@ function initMap() {
     });
 }
 
-function mpa(datosJson) {
+function showAllCollages(allData) {
+    var infoWind = new google.maps.InfoWindow;
     // variable para direccion principal de mapa
     var pitalito = {
         lat: 1.8522305999999997,
@@ -31,18 +38,6 @@ function mpa(datosJson) {
         mapTypeId: google.maps.MapTypeId.HYBRID
         /*mapTypeId: google.maps.MapTypeId.ROADMAP*/
     });
-    //marcador para mostrar el punto exacto de la direcion
-    /* var marker = new google.maps.Marker({
-         position: bogota,
-         map: mapa
-     });*/
-    // variable para cargar el json con los datos de los colegios..
-    var allData = JSON.parse(datosJson);
-    showAllCollages(allData);
-}
-
-function showAllCollages(allData) {
-    var infoWind = new google.maps.InfoWindow;
     Array.prototype.forEach.call(allData, function(data) {
         //
         //

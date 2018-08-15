@@ -344,8 +344,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="advanced-highlight.html">
-                                            Highlight
+                                        <a href="estadisticas/lineas.php">
+                                            Con lineas
                                         </a>
                                     </li>
                                     <li>
