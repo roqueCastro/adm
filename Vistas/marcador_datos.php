@@ -97,35 +97,37 @@ $conta = $conta + 1;
 }
 ?>
     </div>
-</div>
 
-<!-- card Register -->
-<div id="accordion" role="tablist" aria-multiselectable="true">
+
+    <!-- card Register -->
     <div class="card">
-        <div class="card-header" role="tab" id="headingOne">
+        <div class="card-header" role="tab" id="headingTwo">
             <h5 class="mb-0 mt-0 font-16">
-                <a data-toggle="collapse" data-parent="#accordion"
-                href="#collapseOne" aria-expanded="true"
-                aria-controls="collapseOne" class="text-dark">
-               Registro de seguimientos
-                 </a>
+                <a class="collapsed text-dark" data-toggle="collapse"
+                   data-parent="#accordion" href="#collapseTwo"
+                   aria-expanded="false" aria-controls="collapseTwo">
+                SEGUIMIENTO DEL EVENTO
+                </a>
             </h5>
         </div>
-
-        <div id="collapseOne" class="collapse show" role="tabpanel"
-        aria-labelledby="headingOne">
+        <div id="collapseTwo" class="collapse" role="tabpanel"
+             aria-labelledby="headingTwo">
             <div class="card-body">
                 <div class="form-group">
                     <label>Descripcion</label>
                     <div>
-                        <input type="text" class="form-control"/>
+                        <input id="descripcion" type="text" class="form-control"/>
+                        <input id="id_evento" type="hidden" value="<?php echo $id_evento; ?>" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div>
-                        <button type="button" onclick="Registrar_Seguimiento()" class="btn btn-primary">
+                        <button id="btnRS" type="button" onclick="Registrar_Seguimiento()" class="btn btn-primary">
                             Registrar
+                        </button>
+                        <button id="btnRS" type="button" onclick="SolucionadoEvent(<?php echo $id_evento; ?>)" class="btn btn-success waves-effect waves-light">
+                            Evento solucionado
                         </button>
 
                     </div>
@@ -144,10 +146,9 @@ $conta = $conta + 1;
 
                     </tbody>
                 </table>
-
             </div>
         </div>
-     </div>
+    </div>
 </div>
  <script type="text/javascript" src="js/marcador_datos.js"></script>
  <script type="text/javascript" src="js/seguimiento.js"></script>

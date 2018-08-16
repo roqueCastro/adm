@@ -4,9 +4,9 @@ class Seguimiento
 {
     private $conn;
 
-    public function Listar_Tipo_Preguntas()
+    public function Listar_Seguimiento($id)
     {
-        $Sql      = "SELECT * FROM bomberos.tipo_pregunta";
+        $Sql      = "SELECT * FROM bomberos.seguimiento_table WHERE ID=$id";
         $Consulta = $this->conn->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -17,21 +17,22 @@ class Seguimiento
         }
     }
 
-    public function Registrar_Seguimiento($descrip)
+    public function Registrar_Seguimiento($id, $descrip)
     {
 
         try {
-/*
-$sql      = "INSERT INTO tipo_pregunta (nomb_tipo_pgta)VALUES(?)";
-$consulta = $this->conn->prepare($sql);
 
-$consulta->bindParam(1, $no_ti_pre, PDO::PARAM_STR);
+            $sql      = "INSERT INTO seguimiento (descripcion,evento)VALUES(?,?)";
+            $consulta = $this->conn->prepare($sql);
 
-if ($consulta->execute()) {
-echo "Registro exitosamente.";
-} else {
-echo "No se inserto";
-}*/
+            $consulta->bindParam(1, $descrip, PDO::PARAM_STR);
+            $consulta->bindParam(2, $id, PDO::PARAM_INT);
+
+            if ($consulta->execute()) {
+                echo "Registro exitosamente.";
+            } else {
+                echo "No se inserto";
+            }
 
         } catch (Exception $e) {
             echo 'Falló la conexión: ' . $e->getMessage();

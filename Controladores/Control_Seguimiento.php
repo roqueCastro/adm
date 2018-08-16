@@ -8,17 +8,19 @@ try {
 
     $operacion = $_POST['Operacion'];
 
-    if ($operacion == "") {
+    if ($operacion == "Registrar_Seguimiento") {
 
-        $descrip = $_POST['descrip'];
+        $id_evento   = $_POST['id_evento'];
+        $descripcion = $_POST['descripcion'];
 
-        $resultado = $seguimiento->Registrar_Seguimiento($descrip);
+        $resultado = $seguimiento->Registrar_Seguimiento($id_evento, $descripcion);
         echo $resultado;
     }
 
-    if ($operacion == "") {
+    if ($operacion == "Listar_tabla_segui") {
+        $id_evento = $_POST['id_evento'];
 
-        $resultado = $tipo_pregunta->Listar_Tipo_Preguntas();
+        $resultado = $seguimiento->Listar_Seguimiento($id_evento);
         echo $resultado;
     }
 

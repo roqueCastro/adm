@@ -35,14 +35,14 @@ function eliminar(id, nomT) {
     //Detectamos si el usuario acepto el mensaje
     if (mensaje) {
         if (nomT == "pregunta") {
-            eliminar(id, nomT);
+            eliminarDatos(id, nomT);
         }
     }
     //Detectamos si el usuario denegó el mensaje
     else {}
 }
 
-function eliminar(id, ntabla) {
+function eliminarDatos(id, ntabla) {
     if (ntabla == "pregunta") {
         var Url = 'Controladores/Control_Pregunta.php';
         var operation = 'EliminarID';

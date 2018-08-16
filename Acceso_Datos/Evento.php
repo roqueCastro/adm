@@ -39,7 +39,7 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM evento INNER JOIN encuesta ON encuesta.id_encuesta=evento.encuesta";
+        $Sql      = "SELECT * FROM bomberos.coordenadas";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {

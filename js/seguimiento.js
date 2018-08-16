@@ -1,38 +1,84 @@
-//GUARDA TODAS LAS PREGUNTAS
+$(document).ready(function() {
+    cargarTableS($("#id_evento").val());
+});
+
 function Registrar_Seguimiento() {
     // $('#resu').html("<center> <img src='iconos/cargando.gif' width='30' height='30' ></center>");
     //
-    alert('registrando');
-    var tdCabeza = ' <th>Name</th>';
-    tdCabeza += ' <th>Position</th>';
-    tdCabeza += ' <th>Office</th>';
-    tdCabeza += ' <th>Age</th>';
-    tdCabeza += ' <th>Start date</th>';
-    tdCabeza += ' <th>Salary</th>';
+    var id_evento = $("#id_evento").val();
+    var descripcion = $("#descripcion").val();
+    //alert('evento: ' + id_evento + " descripcion: " + descripcion);
+    if (id_evento.length == 0) {
+        alert("falta evento");
+    } else if (descripcion.length == 0) {
+        alert('Ingresa descripcion');
+        $("#descripcion").focus();
+    } else {
+        $("#btnRS").hide();
+        $.ajax({
+            url: 'Controladores/Control_Seguimiento.php',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                Operacion: 'Registrar_Seguimiento',
+                id_evento: id_evento,
+                descripcion: descripcion
+            },
+            success: function(datos) {
+                if (datos == "Registro exitosamente.") {
+                    cargarTableS(id_evento);
+                    $('#descripcion').val('');
+                    alert(datos);
+                    $("#btnRS").show();
+                } else {
+                    alert(datos);
+                    $("#btnRS").show();
+                }
+            },
+            error: function(xhr, status) {
+                alert(status, " " + xhr);
+                $("#btnRS").show();
+                // $('#msg').html();
+            }
+        });
+    }
+}
+
+function cargarTableS(id_eve) {
+    var tdCabeza = ' <th>DESCRIPCION</th>';
+    tdCabeza += ' <th>FECHA</th>';
     $('#td').html(tdCabeza);
-    var htmTr = ' <tr>';
-    htmTr += ' <td>Tiger Nixon</td>';
-    htmTr += ' <td>System Architect</td>';
-    htmTr += ' <td>Edinburgh</td>';
-    htmTr += '  <td>61</td>';
-    htmTr += '  <td>2011/04/25</td>';
-    htmTr += '<td>$320,800</td>';
-    htmTr += '</tr>';
-    htmTr += ' <tr>';
-    htmTr += ' <td>Garrett Winters</td>';
-    htmTr += '<td>Accountant</td>';
-    htmTr += '  <td>Tokyo</td>';
-    htmTr += '  <td>63</td>';
-    htmTr += ' <td>2011/07/25</td>';
-    htmTr += '  <td>$170,750</td>';
-    htmTr += '  </tr>';
-    htmTr += '     <tr>';
-    htmTr += ' <td>Ashton Cox</td>';
-    htmTr += '  <td>Junior Technical Author</td>';
-    htmTr += ' <td>San Francisco</td>';
-    htmTr += ' <td>66</td>';
-    htmTr += ' <td>2009/01/12</td>';
-    htmTr += '   <td>$86,000</td>';
-    htmTr += ' </tr> ';
-    $('#tr').html(htmTr);
+    $.ajax({
+        url: 'Controladores/Control_Seguimiento.php',
+        type: 'POST',
+        dataType: 'html',
+        data: {
+            Operacion: 'Listar_tabla_segui',
+            id_evento: id_eve
+        },
+        success: function(datos) {
+            var segui = JSON.parse(datos);
+            var htmTr;
+            for (var i = 0; i < segui.length; i++) {
+                htmTr += '<tr>';
+                htmTr += '<td>' + segui[i].DESCRIPCION + '</td>';
+                htmTr += '<td>' + segui[i].FECHA + '</td>';
+                htmTr += '</tr>';
+            }
+            $('#tr').html(htmTr);
+        },
+        error: function(xhr, status) {
+            alert(status, " Error: " + xhr);
+        }
+    });
+}
+
+function SolucionadoEvent(id) {
+    var mensaje = confirm("¿Seguro evento solucionado?");
+    //Detectamos si el usuario acepto el mensaje
+    if (mensaje) {
+        alert(id);
+    }
+    //Detectamos si el usuario denegó el mensaje
+    else {}
 }
