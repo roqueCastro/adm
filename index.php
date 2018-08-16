@@ -25,6 +25,9 @@
         <!-- Responsive datatable examples -->
         <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
+        <!-- Magnific popup -->
+        <link href="assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
     </head>
     <body>
         <!-- Loader -->
@@ -487,6 +490,9 @@
         <!-- --------------script para cargar el mapa ---------->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgpYQ8C90Zr8Pg5giypZcc9MneRR3ejkA&callback=initMap" type="text/javascript">
         </script>
+          <!-- Magnific popup -->
+        <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="assets/pages/lightbox.js"></script>
         <!-- --------------estilos de datos ------------->
         <style type="text/css">
         .containerr{

@@ -35,8 +35,8 @@ function showAllCollages(allData) {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: pitalito,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-        /*mapTypeId: google.maps.MapTypeId.ROADMAP*/
+        // mapTypeId: google.maps.MapTypeId.HYBRID
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     });
     Array.prototype.forEach.call(allData, function(data) {
         //
@@ -52,6 +52,7 @@ function showAllCollages(allData) {
         //
         ////
         //
+        //
         var img = document.createElement('img');
         var nameFoto = "";
         if (data.imagen != null) {
@@ -63,7 +64,18 @@ function showAllCollages(allData) {
             img.src = 'img/' + nameFoto + '';
         }
         img.style.width = '100px';
-        content.appendChild(img);
+        img.class = "img-responsive";
+        //
+        var contenImg = document.createElement('a');
+        contenImg.class = "image-popup-vertical-fit";
+        if (data.imagen != null) {
+            contenImg.href = '../webService/' + nameFoto + '';
+        } else {
+            contenImg.href = 'img/' + nameFoto + '';
+        }
+        contenImg.appendChild(img);
+        //
+        content.appendChild(contenImg);
         //
         /////
         //
