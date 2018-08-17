@@ -77,7 +77,26 @@ function SolucionadoEvent(id) {
     var mensaje = confirm("¿Seguro evento solucionado?");
     //Detectamos si el usuario acepto el mensaje
     if (mensaje) {
-        alert(id);
+        $.ajax({
+            url: 'Controladores/Control_Evento.php',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                Operacion: 'Update_EventoID',
+                id_evento: id
+            },
+            success: function(datos) {
+                alert(datos);
+                if (datos == "Se inserto") {
+                    window.location = "index.php";
+                }
+            },
+            error: function(xhr, status) {
+                alert(status, " " + xhr);
+                $("#btnRS").show();
+                // $('#msg').html();
+            }
+        });
     }
     //Detectamos si el usuario denegó el mensaje
     else {}

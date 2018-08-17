@@ -309,27 +309,12 @@
                                 <a href="#">
                                     <i class="ti-search">
                                     </i>
-                                    Consultas
+                                    Eventos solucionados
                                 </a>
                                 <ul class="submenu">
                                     <li>
                                         <a data-toggle="modal" data-target=".bs-example-modal-center" >
-                                            Preguntas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-highlight.html">
-                                            Respuestas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-rating.html">
-                                            Encuestas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-nestable.html">
-                                            Tipo preguntas
+                                            Cargar mapa eventos solucionados
                                         </a>
                                     </li>
                                 </ul>
@@ -343,37 +328,17 @@
                                 <ul class="submenu">
                                     <li>
                                         <a href="estadisticas/mes.php">
-                                            Mes
+                                           Anuales
                                         </a>
                                     </li>
                                     <li>
                                         <a href="estadisticas/lineas.php">
-                                            Con lineas
+                                            Mensuales
                                         </a>
                                     </li>
                                     <li>
                                         <a href="advanced-rating.html">
-                                            Rating
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-nestable.html">
-                                            Nestable
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-alertify.html">
-                                            Alertify
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-rangeslider.html">
-                                            Range Slider
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="advanced-sessiontimeout.html">
-                                            Session Timeout
+                                           Diarias
                                         </a>
                                     </li>
                                 </ul>

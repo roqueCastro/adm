@@ -18,6 +18,14 @@ try {
         echo $resultado;
     }
 
+    if ($operacion == "Update_EventoID") {
+
+        $id = $_POST['id_evento'];
+
+        $resultado = $even->Update_EventoID($id);
+        echo $resultado;
+    }
+
     if ($operacion == "Listar_Eventos") {
 
         $resultado = $even->Listar_Eventos();

@@ -39,7 +39,7 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.coordenadas";
+        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=1";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -67,6 +67,29 @@ class Evento
             $consulta->bindParam(':long', $lo);
             $consulta->bindParam(':enc', $en);
             $consulta->bindParam(':usu', $us);
+
+            if ($consulta->execute()) {
+                echo "Se inserto";
+            } else {
+                echo "No se inserto";
+            }
+
+        } catch (Exception $e) {
+            echo 'Falló la conexión: ' . $e->getMessage();
+        }
+
+    }
+
+    public function Update_EventoID($id)
+    {
+
+        $bd       = new Conecar_bd();
+        $conexion = $bd->Realizar_Conexion();
+
+        try {
+
+            $sql      = "UPDATE evento SET estado = 0 WHERE id_evento=$id";
+            $consulta = $conexion->prepare($sql);
 
             if ($consulta->execute()) {
                 echo "Se inserto";
