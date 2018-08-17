@@ -92,5 +92,25 @@ class bomberos
         }
 
     }
+    public function obtenerInfoMarcadorSolu($id)
+    {
+        try {
+
+            $sql = "SELECT * FROM resultado_encuesta_solucion
+             WHERE ID = ?";
+            $stm = $this->conn->prepare($sql);
+            $stm->bindParam(1, $id, PDO::PARAM_INT);
+
+            if ($stm->execute()) {
+                return $stm->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                return "Error de consulta";
+            }
+
+        } catch (Exeption $e) {
+            die('Error' . $e->getMessage());
+        }
+
+    }
 
 }

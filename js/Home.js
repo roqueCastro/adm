@@ -43,3 +43,14 @@ function Abrir_Ventana(id_even) {
         });
     });
 }
+
+function Abrir_Ventana_EventoSolu(id_even) {
+    $('#modalMapa').modal('hide').on('shown.bs.modal', function() {});
+    //$('#roque').html(id_even);
+    $("#mySmallModalLabel").html('Informacion evento solucionado');
+    $('.modal-body').load("Vistas/marcador_datos_solucion.php?id=" + id_even + " ", function() {
+        $('#Frm_Admin').modal({
+            show: true
+        });
+    });
+}

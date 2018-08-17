@@ -119,6 +119,7 @@ function showAllCollages(allData) {
         } else if (data.id_encuesta == 2) {} else if (data.id_encuesta == 3) {
             marker.setIcon('img/marcadores/accidente.png')
         }
+        marker.setAnimation(google.maps.Animation.BOUNCE);
         marker.addListener('click', function() {
             infoWind.setContent(content);
             infoWind.open(map, marker);
@@ -187,6 +188,7 @@ function showAllCoordenadasSolucionadas(allCoordenadas) {
         var center = document.createElement('center');
         //
         var inflarVista = document.createElement('a');
+        inflarVista.href = 'javascript:Abrir_Ventana_EventoSolu(' + data.id_evento + ')';
         inflarVista.textContent = 'Ver +';
         // inflarVista.href = 'javascript:Abrir_Ventana(' + data.id_evento + ')';
         //
@@ -204,7 +206,6 @@ function showAllCoordenadasSolucionadas(allCoordenadas) {
         } else if (data.id_encuesta == 2) {} else if (data.id_encuesta == 3) {
             marker.setIcon('img/marcadores/accidente.png')
         }
-        marker.setAnimation(google.maps.Animation.BOUNCE);
         marker.addListener('click', function() {
             infoWind1.setContent(contentenedor);
             infoWind1.open(mapss, marker);

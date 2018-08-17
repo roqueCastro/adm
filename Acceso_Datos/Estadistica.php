@@ -20,7 +20,7 @@ class Estadistica
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_evento";
+        $Sql      = "SELECT * FROM bomberos.estadistica_evento ORDER BY MES_NUM ASC";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
