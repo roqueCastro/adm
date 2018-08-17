@@ -51,6 +51,25 @@ class Evento
         }
 
     }
+    public function Listar_Coordenadas_Soluccion()
+    {
+
+        $bd       = new Conecar_bd();
+        $Conexion = $bd->Realizar_Conexion();
+
+        // $Conexion ->exec(SET CHARACTER SET utf8);
+        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=0";
+        $Consulta = $Conexion->prepare($Sql);
+
+        if ($Consulta->execute()) {
+            $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($results);
+
+        } else {
+            echo "NO se ejecuto";
+        }
+
+    }
 
     public function Registrar_Evento($la, $lo, $en, $us)
     {

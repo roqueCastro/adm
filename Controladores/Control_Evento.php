@@ -37,6 +37,12 @@ try {
         echo $resultado;
     }
 
+    if ($operacion == "listar_coordenadas_Solucionadas") {
+
+        $resultado = $even->Listar_Coordenadas_Soluccion();
+        echo $resultado;
+    }
+
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();
 }

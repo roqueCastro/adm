@@ -313,9 +313,7 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a data-toggle="modal" data-target=".bs-example-modal-center" >
-                                            Cargar mapa eventos solucionados
-                                        </a>
+                                        <a onclick="eventossolucionados()">Mapa</a>
                                     </li>
                                 </ul>
                             </li>
@@ -374,8 +372,8 @@
             </div>
             <!--  end container -->
             <!---------------------------------------------------------- inicio de modals ------------------------------------------------>
-               <div id="Frm_Admin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="ModalCrear" data-backdrop="static"
-  data-keyboard="false">
+               <div id="Frm_Admin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="             myLargeModalLabel" aria-hidden="true" id="ModalCrear" data-backdrop="static"
+                            data-keyboard="false">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -397,6 +395,27 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
+
+                <!-- -*--------------mapa modal--------- -->
+                <div class="modal fade" id="modalMapa" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true" data-backdrop="static">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                             <div class="modal-header">
+                                <h4 class="modal-title mt-0" id="mySmallModalLabel">Eventos ya solucionados</h4>
+                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="mapaSolucion" style="width: 100%;height: 350px;">
+
+                                </div>
+
+                                <div class="modal-footer ">
+                                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Fechar</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
         <!--end donde va el mapa completo -->
         <!-- Footer -->
