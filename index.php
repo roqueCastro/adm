@@ -325,20 +325,11 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="estadisticas/mes.php">
-                                           Anuales
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a href="estadisticas/lineas.php">
-                                            Mensuales
+                                            Incendios
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="advanced-rating.html">
-                                           Diarias
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
                         </ul>

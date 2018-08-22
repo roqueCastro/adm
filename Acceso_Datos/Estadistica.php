@@ -20,7 +20,7 @@ class Estadistica
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_evento ORDER BY MES_NUM ASC";
+        $Sql      = "SELECT * FROM bomberos.estadistica_mensual ORDER BY MES_NUM ASC";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -33,31 +33,44 @@ class Estadistica
 
     }
 
-    public function Registrar_Evento($la, $lo, $en, $us)
+    public function Listar_Estadisticas_Anual()
     {
 
         $bd       = new Conecar_bd();
-        $conexion = $bd->Realizar_Conexion();
+        $Conexion = $bd->Realizar_Conexion();
 
-        try {
+        // $Conexion ->exec(SET CHARACTER SET utf8);
+        $Sql      = "SELECT * FROM bomberos.estadistica_anual";
+        $Consulta = $Conexion->prepare($Sql);
 
-            $sql      = "INSERT INTO evento (latitud,longitud,encuesta,usuario)VALUES(:lat,:long,:enc,:usu);";
-            $consulta = $conexion->prepare($sql);
+        if ($Consulta->execute()) {
+            $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($results);
 
-            $consulta->bindParam(':lat', $la);
-            $consulta->bindParam(':long', $lo);
-            $consulta->bindParam(':enc', $en);
-            $consulta->bindParam(':usu', $us);
-
-            if ($consulta->execute()) {
-                echo "Se inserto";
-            } else {
-                echo "No se inserto";
-            }
-
-        } catch (Exception $e) {
-            echo 'Falló la conexión: ' . $e->getMessage();
+        } else {
+            echo "NO se ejecuto";
         }
 
     }
+
+    public function Listar_Estadisticas_Diaria()
+    {
+
+        $bd       = new Conecar_bd();
+        $Conexion = $bd->Realizar_Conexion();
+
+        // $Conexion ->exec(SET CHARACTER SET utf8);
+        $Sql      = "SELECT * FROM bomberos.estadistica_diaria";
+        $Consulta = $Conexion->prepare($Sql);
+
+        if ($Consulta->execute()) {
+            $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($results);
+
+        } else {
+            echo "NO se ejecuto";
+        }
+
+    }
+
 }

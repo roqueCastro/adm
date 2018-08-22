@@ -4,16 +4,23 @@
 
    <!--Chartist Chart CSS -->
    <link rel="stylesheet" href="../assets/plugins/chartist/css/chartist.min.css">
-
+   <!-- jquery -->
    <script src="../assets/js/jquery.min.js"></script>
+   <!-- Raphael -->
    <script src="../assets/plugins/raphael/raphael-min.js"></script>
-   <script src="../assets/plugins/morris/morris.min.js"></script>
+   <!-- Chartist -->
    <script src="../assets/plugins/chartist/js/chartist.min.js"></script>
    <script src="../assets/plugins/chartist/js/chartist-plugin-tooltip.min.js"></script>
-   <script src="lib/morris.min.js" charset="utf-8"></script>
+   <!-- Morris -->
    <script charset="utf-8" src="lib/morris.js"></script>
+   <script src="../assets/plugins/morris/morris.min.js"></script>
+   <!-- bootrap -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-   <!-- App css -->
+
+  <!-- App css -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
   <!-- App Icons -->
   <link rel="shortcut icon" href="../assets/images/favicon.ico">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -47,12 +54,35 @@
     </header>
     <div class="container">
         <hr>
-
+        <div class="row">
+            <div class="col-md-12">
+                <h2 align="center">Gráfica Diaria</h2>
+                <hr>
+                <h6 style="text-anchor: 12px">INCENDIOS</h6>
+                 <div id="simple-line-chart" class="ct-chart ct-golden-section"></div>
+                 <div id="resultado"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <h2 align="center">Gráfica mensual</h2>
                 <hr>
+                <h6 style="text-anchor: 12px">INCENDIOS</h6>
                 <div id="myfirstchart"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 align="center">Gráfica Anual</h2>
+                <hr>
+                <h6 style="text-anchor: 12px">INCENDIOS</h6>
+                <div id="graficaAnual"></div>
             </div>
         </div>
     </div>
