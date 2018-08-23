@@ -1,1 +1,47 @@
   DEFINER = `bomberos`@`%` 
+--------- Notificacion'''''''''''''''''''''''------------
+  <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-warning">
+                                            <i class="mdi mdi-fire">
+                                            </i>
+                                        </div>
+                                        <p class="notify-details">
+                                            <b>
+                                                Insendio
+                                            </b>
+                                            <small class="text-muted">
+                                               fuga de gas
+                                            </small>
+                                        </p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-success">
+                                            <i class="mdi mdi-cat">
+                                            </i>
+                                        </div>
+                                        <p class="notify-details">
+                                            <b>
+                                                Animales
+                                            </b>
+                                            <small class="text-muted">
+                                                It is a long established fact that a reader will
+                                            </small>
+                                        </p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-danger">
+                                            <i class="mdi mdi-account-star-variant">
+                                            </i>
+                                        </div>
+                                        <p class="notify-details">
+                                            <b>
+                                                Acidente de transito
+                                            </b>
+                                            <small class="text-muted">
+                                                Imprudencias
+                                            </small>
+                                        </p>
+                                    </a>

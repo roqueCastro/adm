@@ -11,7 +11,7 @@
         <meta content="Themesdesign" name="author"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <!-- App Icons -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+        <link rel="shortcut icon" href="assets/images/logo_sig/logo.png"/>
         <!--Morris Chart CSS -->
         <!-- <link rel="stylesheet" href="assets/plugins/morris/morris.css"/> -->
         <!-- App css -->
@@ -129,77 +129,13 @@
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="mdi mdi-bell-outline noti-icon">
                                     </i>
-                                    <span class="badge badge-danger noti-icon-badge">
-                                        4
+                                    <span id="numNoti" class="badge badge-danger noti-icon-badge">
+
                                     </span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                                <div id="notificacion" class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg scrollbar-primary" data-spy="scroll" data-target=".navbar">
+
                                     <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5>
-                                            Notification (3)
-                                        </h5>
-                                    </div>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                        <div class="notify-icon bg-info">
-                                            <i class="mdi mdi-water">
-                                            </i>
-                                        </div>
-                                        <p class="notify-details">
-                                            <b>
-                                                Fuga de agua
-                                            </b>
-                                            <small class="text-muted">
-                                                Avenida primera
-                                            </small>
-                                        </p>
-                                    </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-warning">
-                                            <i class="mdi mdi-fire">
-                                            </i>
-                                        </div>
-                                        <p class="notify-details">
-                                            <b>
-                                                Insendio
-                                            </b>
-                                            <small class="text-muted">
-                                               fuga de gas
-                                            </small>
-                                        </p>
-                                    </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-success">
-                                            <i class="mdi mdi-cat">
-                                            </i>
-                                        </div>
-                                        <p class="notify-details">
-                                            <b>
-                                                Animales
-                                            </b>
-                                            <small class="text-muted">
-                                                It is a long established fact that a reader will
-                                            </small>
-                                        </p>
-                                    </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-danger">
-                                            <i class="mdi mdi-account-star-variant">
-                                            </i>
-                                        </div>
-                                        <p class="notify-details">
-                                            <b>
-                                                Acidente de transito
-                                            </b>
-                                            <small class="text-muted">
-                                                Imprudencias
-                                            </small>
-                                        </p>
-                                    </a>
 
                                 </div>
                             </li>
@@ -479,7 +415,11 @@
         }
 
         </style>
+        <!-- Imprimir tablas -->
+         <script type="text/javascript" src="js/consulta_tablas.js"></script>
+        <!-- Notificaciones mostrar -->
+        <script type="text/javascript" src="js/notificaciones.js"></script>
     </body>
-    <script type="text/javascript" src="js/consulta_tablas.js"></script>
+
 
 </html>

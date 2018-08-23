@@ -84,16 +84,8 @@ function showAllCollages(allData) {
         img.style.width = '100px';
         img.class = "img-responsive";
         //
-        var contenImg = document.createElement('a');
-        contenImg.class = "image-popup-vertical-fit";
-        if (data.imagen != null) {
-            contenImg.href = '../webService/' + nameFoto + '';
-        } else {
-            contenImg.href = 'img/' + nameFoto + '';
-        }
-        contenImg.appendChild(img);
         //
-        content.appendChild(contenImg);
+        content.appendChild(img);
         //
         /////
         //

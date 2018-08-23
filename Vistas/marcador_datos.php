@@ -52,7 +52,9 @@ if ($informacion != null) {
                 <a data-toggle="collapse" data-parent="#accordion"
                 href="#collapseOne" aria-expanded="true"
                 aria-controls="collapseOne" class="text-dark">
-                <?php echo $data = $infor['Evento']; ?>
+                <?php echo $data = $infor['Evento'];
+            $imagen                          = $infor['IMAGEN'];
+            ?>
                  </a>
             </h5>
         </div>
@@ -146,6 +148,26 @@ $conta = $conta + 1;
 
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+    <!-- Acordion 3 imagen evento -->
+     <div class="card">
+        <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0 mt-0 font-16">
+                <a class="collapsed text-dark" data-toggle="collapse"
+                   data-parent="#accordion" href="#collapseThree"
+                   aria-expanded="false" aria-controls="collapseThree">
+                    IMAGEN TOMADA EN EL SEGUIMIENTO
+                </a>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" role="tabpanel"
+             aria-labelledby="headingThree">
+            <div class="card-body">
+                <div class="" align="center">
+                    <img src="../webService/<?php echo $imagen; ?>" class="img-fluid" alt="Responsive image">
+                </div>
             </div>
         </div>
     </div>
