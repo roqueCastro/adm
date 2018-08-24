@@ -49,10 +49,13 @@
     <!--  Mensaje de alertas -->
     <form class="" method="POST" action="">
         <div class="form-group">
-            <label>Nombre empresa</label>
-            <div>
-                <input class="form-control" type="text" id="nombre_c"required >
+            <label>Encuesta</label>
+            <div class="form-group">
+                <select id="encuestac" required class="form-control">
+
+                </select>
             </div>
+            <!--  <input type="text" class="form-control" required placeholder="Type something"/> -->
         </div>
         <div class="form-group">
             <label>Numero telefonico</label>

@@ -3,15 +3,15 @@
 class Conecar_bd
 {
 
-    // private $conexion;
-    // private $host    = '10.97.128.75';
-    // private $usuario = 'bomberos';
-    // private $pass    = 'juanjose1201';
-    // private $bbdd    = 'bomberos';
-    private $host    = 'localhost';
+    private $conexion;
+    private $host    = '10.97.128.75';
+    private $usuario = 'bomberos';
+    private $pass    = 'juanjose1201';
+    private $bbdd    = 'bomberos';
+    /* private $host    = 'localhost';
     private $usuario = 'root';
     private $pass    = '';
-    private $bbdd    = 'bomberos';
+    private $bbdd    = 'bomberos';*/
 
     public function Realizar_Conexion()
     {

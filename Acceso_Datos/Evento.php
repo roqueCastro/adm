@@ -39,7 +39,7 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=1";
+        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=1 ORDER BY id_evento DESC";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {

@@ -40,7 +40,7 @@ class Estadistica
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_anual";
+        $Sql      = "SELECT AÑO as ano, TOTAL as total FROM bomberos.estadistica_anual";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {

@@ -43,7 +43,7 @@ function imprimirNoti(jsonEventosEmerg) {
         htmlNotifi += jsonEventosEmerg[i].nomb_encta;
         htmlNotifi += '</b>';
         htmlNotifi += '<small class="text-muted">';
-        htmlNotifi += 'Avenida primera';
+        htmlNotifi += jsonEventosEmerg[i].dia + '-' + jsonEventosEmerg[i].mes + '-' + jsonEventosEmerg[i].ano + ' hora: ' + jsonEventosEmerg[i].hora;
         htmlNotifi += '</small>';
         htmlNotifi += '</p>';
         htmlNotifi += '</a>';

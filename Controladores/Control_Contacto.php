@@ -10,11 +10,11 @@ try {
 
     if ($operacion == "Registrar_Con") {
 
-        $n = $_POST['nom_c'];
-        $t = $_POST['telefono_c'];
-        $c = $_POST['correo_c'];
+        $t   = $_POST['telefono_c'];
+        $c   = $_POST['correo_c'];
+        $ide = $_POST['id_encuesta'];
 
-        $resultado = $contacto->Registrar_Contactos($n, $t, $c);
+        $resultado = $contacto->Registrar_Contactos($t, $c, $ide);
         echo $resultado;
     }
 

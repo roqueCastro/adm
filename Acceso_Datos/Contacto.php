@@ -4,7 +4,7 @@ class Contacto
 {
     private $conn;
 
-    public function Registrar_Contactos($no_c, $tel, $ema)
+    public function Registrar_Contactos($tel, $ema, $enc)
     {
 
         try {
@@ -13,7 +13,7 @@ class Contacto
             $consulta = $this->conn->prepare($sql);
 
             $consulta->bindParam(1, $no_c, PDO::PARAM_STR);
-            $consulta->bindParam(2, 1, PDO::PARAM_INT);
+            $consulta->bindParam(2, $enc, PDO::PARAM_INT);
             $consulta->bindParam(3, $tel, PDO::PARAM_STR);
             $consulta->bindParam(4, $ema, PDO::PARAM_STR);
 

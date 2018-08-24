@@ -1,6 +1,7 @@
 $(document).ready(function() {
     cargarEsDia();
     listarEstadisticasMensual();
+    cargarDAnual();
 });
 //
 //GRAFICA MENSUAL
@@ -21,6 +22,7 @@ var doce = 0;
 setInterval(function() {
     listarEstadisticasMensual();
     cargarEsDia();
+    cargarDAnual();
 }, 6000);
 //
 function listarEstadisticasMensual() {
@@ -131,11 +133,11 @@ function moris(total) {
 var morris1 = new Morris.Line({
     element: 'graficaAnual',
     data: [{
-        AÑO: '2005',
-        incendio: 12
+        ano: '2005',
+        total: 12
     }],
-    xkey: 'AÑO',
-    ykeys: ['incendio'],
+    xkey: 'ano',
+    ykeys: ['total'],
     labels: ['Incendios'],
     resize: true,
     lineColors: ['#12C300', '#12C300', '#89009C'],
@@ -146,13 +148,13 @@ function cargarDAnual() {
     $.ajax({
         url: '../Controladores/Control_Estadistica.php',
         type: 'POST',
-        dataType: "html",
+        dataType: "json",
         data: {
             Operacion: 'Listar_Estadisticas_Anual'
         },
         success: function(datos) {
             // var jsonDataAn = JSON.parse(datos);
-            alert(datos);
+            morris1.setData(datos);
         },
         error: function(xhr, status) {
             alert(status);
