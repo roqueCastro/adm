@@ -49,7 +49,7 @@
     <!--  Mensaje de alertas -->
     <form class="" method="POST" action="">
         <div class="form-group">
-            <label>Encuesta</label>
+            <label>Evento</label>
             <div class="form-group">
                 <select id="encuestac" required class="form-control">
 

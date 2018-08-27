@@ -16,14 +16,16 @@
    <script src="../assets/plugins/morris/morris.min.js"></script>
    <!-- bootrap -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+  <title>SIG MTEE</title>
   <!-- App css -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
   <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
   <!-- App Icons -->
-  <link rel="shortcut icon" href="../assets/images/favicon.ico">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <!-- Titulo de la ventana -->
+  <link rel="shortcut icon" href="../assets/images/logo_sig/logo.png">
+  <title>SIG MTEE</title>
 
 
   </head>

@@ -6,20 +6,18 @@ $(document).ready(function() {
 var id_encuesta = 0;
 
 function Registrar_Contactos() {
-    // $('#resu').html("<center> <img src='iconos/cargando.gif' width='30' height='30' ></center>");
-    var nom_c = $('#nombre_c').val();
     var telefono_c = $('#telefono_c').val();
     var correo_c = $('#correo_c').val();
-    if (nom_c.length == 0) {
-        errorDatos("Ingresa nombre empresa");
+    if (id_encuesta == 0) {
+        errorDatos("Seleccione un evento");
     } else if (telefono_c.length == 0) {
         errorDatos("Ingresa numero telefonico");
     } else if (correo_c.length == 0) {
         errorDatos("Ingresa correo electronico");
     } else {
-        /*alert(nom_c);
-        alert(telefono_c);
-        alert(correo_c);*/
+        /*      alert(id_encuesta);
+              alert(telefono_c);
+              alert(correo_c);*/
         $.ajax({
             url: 'Controladores/Control_Contacto.php',
             type: 'POST',
@@ -28,14 +26,12 @@ function Registrar_Contactos() {
                 Operacion: 'Registrar_Con',
                 telefono_c: telefono_c,
                 correo_c: correo_c,
-                id_encuesta,
-                id_encuesta
+                id_encuesta: id_encuesta
             },
             success: function(datos) {
                 if (datos == "Registro exitosamente.") {
-                    $('#nombre_pregunta').val('');
-                    $('#nombre_pregunta').val('');
-                    $('#nombre_pregunta').val('');
+                    $('#telefono_c').val('');
+                    $('#correo_c').val('');
                     correctDatos(datos);
                 } else {
                     errorDatos(datos);
@@ -76,7 +72,6 @@ function listarPreguntas() {
     $("#encuestac").change(function() {
         $("#encuestac option:selected").each(function() {
             id_encuesta = $(this).val();
-            alert(id_encuesta);
         });
     });
 }
