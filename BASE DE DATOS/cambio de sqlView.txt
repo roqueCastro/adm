@@ -45,3 +45,14 @@
                                             </small>
                                         </p>
                                     </a>
+
+
+SESION STAR
+session_start();
+	if(! isset($_SESSION['id'])){
+		header('Location:../login.php');
+	}
+DESTRUIR SESION STAR
+session_start();
+session_destroy();
+header("Location:index.php");

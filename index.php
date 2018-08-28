@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location:Vistas/login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -102,10 +108,10 @@
                                     </a>
                                     <div class="dropdown-divider">
                                     </div>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" onclick="cerrarSesion()">
                                         <i class="dripicons-exit text-muted">
                                         </i>
-                                        Logout
+                                        Cerrar sesión
                                     </a>
                                 </div>
                             </li>
@@ -351,6 +357,8 @@
          <script type="text/javascript" src="js/consulta_tablas.js"></script>
         <!-- Notificaciones mostrar -->
         <script type="text/javascript" src="js/notificaciones.js"></script>
+        <!-- usuario -->
+        <script type="text/javascript" src="js/usuario.js"></script>
     </body>
 
 

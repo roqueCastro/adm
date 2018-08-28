@@ -1,12 +1,32 @@
 function initMap() {
     mpa();
 }
+var cont = 0;
+setInterval(function() {
+    if (cont == 0) {
+        alert(cont);
+        var pitalito = {
+            lat: 1.8522305999999997,
+            lng: -76.0488719
+        };
+        // variable para cargar el mapa de google y mostrar en el div
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: pitalito,
+            // mapTypeId: google.maps.MapTypeId.HYBRID
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        cont = 1;
+    }
+    ajaxCoordenadas(map);
+    alert('time');
+}, 10000);
 
 function mpa() {
     ajaxCoordenadas();
 }
 
-function ajaxCoordenadas() {
+function ajaxCoordenadas(map) {
     $.ajax({
         url: 'Controladores/Control_Evento.php',
         type: 'POST',
@@ -16,7 +36,7 @@ function ajaxCoordenadas() {
         },
         success: function(datos) {
             var allData = JSON.parse(datos);
-            showAllCollages(allData);
+            showAllCollages(allData, map);
         },
         error: function(xhr, status) {
             alert("Error: " + xhr + " Estatus: " + status)
@@ -41,21 +61,12 @@ function ajaxCoordenadasSolucionada() {
         }
     });
 }
+var markers = [];
 
-function showAllCollages(allData) {
+function showAllCollages(allData, map) {
     var infoWind = new google.maps.InfoWindow;
+    deleteMarkers();
     // variable para direccion principal de mapa
-    var pitalito = {
-        lat: 1.8522305999999997,
-        lng: -76.0488719
-    };
-    // variable para cargar el mapa de google y mostrar en el div
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: pitalito,
-        // mapTypeId: google.maps.MapTypeId.HYBRID
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
     Array.prototype.forEach.call(allData, function(data) {
         //
         //
@@ -116,7 +127,20 @@ function showAllCollages(allData) {
             infoWind.setContent(content);
             infoWind.open(map, marker);
         });
+        markers.push(marker)
     });
+}
+
+function setMapOnAll(map) {
+    //hace ciclo sobre los marcadores que hemos guardado en la variable markers
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+function deleteMarkers() {
+    setMapOnAll(null);
+    markers = [];
 }
 
 function showAllCoordenadasSolucionadas(allCoordenadas) {

@@ -38,17 +38,17 @@
                         <form class="form-horizontal m-t-20" action="">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="Correo electronico"/>
+                                    <input id="cor" class="form-control" type="text" required="" placeholder="Correo electronico"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="Contraseña"/>
+                                    <input id="con" class="form-control" type="password" required="" placeholder="Contraseña"/>
                                 </div>
                             </div>
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                    <button style="background-color: #CB4F24; border-color: #CB4F24;" class="btn btn-info btn-block waves-effect waves-light" type="submit">
+                                    <button onclick="InicioSesion()" style="background-color: #CB4F24; border-color: #CB4F24;" class="btn btn-info btn-block waves-effect waves-light" type="button">
                                         Entrar
                                     </button>
                                 </div>
@@ -62,7 +62,7 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a style="color: #ffffff" href="pages-register.html" class="text-muted">
+                                    <a style="color: #ffffff" href="registro.php" class="text-muted">
                                         <p style="color: #ffffff;">
                                             <i class="mdi mdi-account-circle">
                                             </i>
@@ -76,5 +76,16 @@
                 </div>
             </div>
         </div>
+        <!-- java script para el usuario -->
+        <script type="text/javascript" src="../js/usuario.js"></script>
+        <!-- jQuery  -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/modernizr.min.js"></script>
+        <script src="../assets/js/waves.js"></script>
+        <script src="../assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/js/jquery.scrollTo.min.js"></script>
     </body>
 </html>
