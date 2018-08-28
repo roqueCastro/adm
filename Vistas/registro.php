@@ -32,26 +32,26 @@
                         </b>
                     </h4>
                     <div class="p-3">
-                        <form class="form-horizontal m-t-20" action="index.html">
+                        <form class="form-horizontal m-t-20" action="" method="POST">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" required="" placeholder="Correo"/>
+                                    <input id="email" class="form-control" type="email" required="" placeholder="Correo"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="Usuario"/>
+                                    <input  id="usuario" class="form-control" type="text" required="" placeholder="Usuario"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="Contraseña"/>
+                                    <input id="pass" class="form-control" type="password" required="" placeholder="Contraseña"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" style="color: #CB4F24" class="custom-control-input" id="customCheck1"/>
+                                        <input id="termCon" type="checkbox" style="color: #CB4F24" class="custom-control-input" id="customCheck1"/>
                                         <label style="color: #ffffff" class="custom-control-label font-weight-normal" for="customCheck1">
                                             Acepto
                                             <a href="#"  class="text-muted">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                    <button style="background-color:#CB4F24; border-color: #CB4F24 " class="btn btn-info btn-block waves-effect waves-light" type="submit">
+                                    <button onclick="Registrar_Usuario()" style="background-color:#CB4F24; border-color: #CB4F24 " class="btn btn-info btn-block waves-effect waves-light" type="button">
                                         Register
                                     </button>
                                 </div>
@@ -80,5 +80,16 @@
                 </div>
             </div>
         </div>
+        <!-- java script para el usuario -->
+        <script type="text/javascript" src="../js/usuario.js"></script>
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
     </body>
 </html>
