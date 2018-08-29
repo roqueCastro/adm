@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location:../Vistas/login.php');
+}
 /* Conectar a una base de datos de MySQL invocando al controlador */
 
 require 'Conexion.php';
@@ -19,8 +23,9 @@ class Encuestas
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM encuesta";
+        $Sql      = "SELECT * FROM bomberos.encuesta WHERE usuario=?";
         $Consulta = $Conexion->prepare($Sql);
+        $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 
         if ($Consulta->execute()) {
             $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -40,10 +45,11 @@ class Encuestas
 
         try {
 
-            $sql      = "INSERT INTO encuesta (nomb_encta ,est_encta)VALUES(?,?)";
+            $sql      = "INSERT INTO encuesta (nomb_encta ,est_encta,usuario)VALUES(?,?,?)";
             $consulta = $conexion->prepare($sql);
             $consulta->bindParam(1, $no_en, PDO::PARAM_STR);
             $consulta->bindParam(2, $esta_en, PDO::PARAM_STR);
+            $consulta->bindParam(3, $_SESSION['id'], PDO::PARAM_INT);
 
             if ($consulta->execute()) {
                 echo "Registro exitosamente.";

@@ -4,7 +4,6 @@ function initMap() {
 var cont = 0;
 setInterval(function() {
     if (cont == 0) {
-        alert(cont);
         var pitalito = {
             lat: 1.8522305999999997,
             lng: -76.0488719
@@ -19,11 +18,21 @@ setInterval(function() {
         cont = 1;
     }
     ajaxCoordenadas(map);
-    alert('time');
 }, 10000);
 
 function mpa() {
-    ajaxCoordenadas();
+    var pitalito = {
+        lat: 1.8522305999999997,
+        lng: -76.0488719
+    };
+    // variable para cargar el mapa de google y mostrar en el div
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: pitalito,
+        // mapTypeId: google.maps.MapTypeId.HYBRID
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    ajaxCoordenadas(map);
 }
 
 function ajaxCoordenadas(map) {

@@ -1,6 +1,9 @@
 <?php
 /* Conectar a una base de datos de MySQL invocando al controlador */
-
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location:../Vistas/login.php');
+}
 require 'Conexion.php';
 
 class Evento
@@ -39,8 +42,9 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=1 ORDER BY id_evento DESC";
+        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=1 and ADMIN=? ORDER BY id_evento DESC";
         $Consulta = $Conexion->prepare($Sql);
+        $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 
         if ($Consulta->execute()) {
             $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -58,8 +62,9 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=0";
+        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=0 and ADMIN=?";
         $Consulta = $Conexion->prepare($Sql);
+        $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 
         if ($Consulta->execute()) {
             $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
