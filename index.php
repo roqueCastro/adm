@@ -17,7 +17,7 @@ if (!isset($_SESSION['id'])) {
         <meta content="Themesdesign" name="author"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <!-- App Icons -->
-        <link rel="shortcut icon" href="assets/images/logo_sig/logo.png"/>
+        <link rel="shortcut icon" href="assets/images/logo_sig/sublogo.jpg"/>
         <!--Morris Chart CSS -->
         <!-- <link rel="stylesheet" href="assets/plugins/morris/morris.css"/> -->
         <!-- App css -->
