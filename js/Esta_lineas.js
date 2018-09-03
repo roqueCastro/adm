@@ -1,7 +1,11 @@
+var ID = 0;
+var nomAnual = 'INSENDIO';
 $(document).ready(function() {
-    cargarEsDia();
-    listarEstadisticasMensual();
-    cargarDAnual();
+    Listar_Tipos_Encuestas();
+    clicEncuesta();
+    cargarEsDia(ID);
+    listarEstadisticasMensual(ID);
+    cargarDAnual(ID);
 });
 //
 //GRAFICA MENSUAL
@@ -20,18 +24,31 @@ var once = 0;
 var doce = 0;
 //
 setInterval(function() {
-    listarEstadisticasMensual();
-    cargarEsDia();
-    cargarDAnual();
+    listarEstadisticasMensual(ID);
+    cargarEsDia(ID);
+    cargarDAnual(ID);
 }, 6000);
 //
-function listarEstadisticasMensual() {
+function listarEstadisticasMensual(ID) {
+    uno = 0;
+    dos = 0;
+    tres = 0;
+    cuatro = 0;
+    cinco = 0;
+    seis = 0;
+    siete = 0;
+    ocho = 0;
+    nueve = 0;
+    diez = 0;
+    once = 0;
+    doce = 0;
     $.ajax({
         url: '../Controladores/Control_Estadistica.php',
         type: 'POST',
         dataType: "html",
         data: {
-            Operacion: 'Listar_Estadisticas_Mes'
+            Operacion: 'Listar_Estadisticas_Mes',
+            id: ID
         },
         success: function(datos) {
             var jsonData = JSON.parse(datos);
@@ -92,17 +109,12 @@ function listarEstadisticasMensual() {
                         break;
                 }
             }
-            /*  for (var z = 0; z < CalcuNew; z++) {
-                  arrayCabeza[numeroDatos] = 0;
-                  numeroDatos = numeroDatos + 1;
-              }*/
             var arreglo = [uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce];
             // alert(arreglo);
             moris(arreglo);
         },
         error: function(xhr, status) {
             alert(status);
-            // $('#msg').html();
         }
     });
 }
@@ -138,22 +150,29 @@ var morris1 = new Morris.Line({
     }],
     xkey: 'ano',
     ykeys: ['total'],
-    labels: ['Incendios'],
+    labels: ['Eventos'],
     resize: true,
     lineColors: ['#12C300', '#12C300', '#89009C'],
     lineWidth: 3
 });
 
-function cargarDAnual() {
+function cargarDAnual(ID) {
     $.ajax({
         url: '../Controladores/Control_Estadistica.php',
         type: 'POST',
         dataType: "json",
         data: {
-            Operacion: 'Listar_Estadisticas_Anual'
+            Operacion: 'Listar_Estadisticas_Anual',
+            id: ID
         },
         success: function(datos) {
             // var jsonDataAn = JSON.parse(datos);
+            if (datos.length == 0) {
+                datos = [{
+                    ano: '2018',
+                    total: 0
+                }];
+            }
             morris1.setData(datos);
         },
         error: function(xhr, status) {
@@ -207,13 +226,38 @@ function grafiDia(impre) {
     });
 }
 //
-function cargarEsDia() {
+function cargarEsDia(ID) {
+    a1 = 0;
+    a2 = 0;
+    a3 = 0;
+    a4 = 0;
+    a5 = 0;
+    a6 = 0;
+    a7 = 0;
+    a8 = 0;
+    a9 = 0;
+    a10 = 0;
+    a11 = 0;
+    a12 = 0;
+    p1 = 0;
+    p2 = 0;
+    p3 = 0;
+    p4 = 0;
+    p5 = 0;
+    p6 = 0;
+    p7 = 0;
+    p8 = 0;
+    p9 = 0;
+    p10 = 0;
+    p11 = 0;
+    p12 = 0;
     $.ajax({
         url: '../Controladores/Control_Estadistica.php',
         type: 'POST',
         dataType: "json",
         data: {
-            Operacion: 'Listar_Estadisticas_Diaria'
+            Operacion: 'Listar_Estadisticas_Diaria',
+            id: ID
         },
         success: function(datos) {
             for (var i = 0; i < datos.length; i++) {
@@ -327,6 +371,88 @@ function cargarEsDia() {
         error: function(xhr, status) {
             alert(status);
             // $('#msg').html();
+        }
+    });
+}
+//
+// tipos de encuesta
+function Listar_Tipos_Encuestas() {
+    $.ajax({
+        url: '../Controladores/Control_Encuesta.php',
+        data: {
+            Operacion: 'Listar_Tipos_Encuestas'
+        },
+        type: 'POST',
+        dataType: 'json',
+        success: function(datos) {
+            //creamos el ciclo para recorrer el json y creamos la variable
+            // tipo_pre de tipo string y la imprimimos en el select de tipo pregunta
+            var dato_imprimir = '';
+            var entro = 0;
+            for (var i = 0; i < datos.length; i++) {
+                if (entro == 0) {
+                    ID = datos[i].id_encuesta;
+                    $('#TiDiaria').html(datos[i].nomb_encta);
+                    $('#TiMensual').html(datos[i].nomb_encta);
+                    $('#TiAnual').html(datos[i].nomb_encta);
+                    nomAnual = datos[i].nomb_encta;
+                    cargarEsDia(datos[i].id_encuesta);
+                    listarEstadisticasMensual(datos[i].id_encuesta);
+                    cargarDAnual(datos[i].id_encuesta);
+                    entro = 1;
+                }
+                dato_imprimir += '<option value="' + datos[i].id_encuesta + '">' + datos[i].nomb_encta + '</option>';
+            }
+            $('#encuesta').html(dato_imprimir);
+        },
+        error: function(xhr, status) {
+            alert('Disculpe, existió un problema');
+            // $('#msg').html();
+        },
+        // código a ejecutar sin importar si la petición falló o no
+        complete: function(xhr, status) {
+            $('#msg').html('Se listaron todos los eventos..');
+        }
+    });
+}
+//
+// clic en el tipo de encuesta
+function clicEncuesta() {
+    $("#encuesta").change(function() {
+        $("#encuesta option:selected").each(function() {
+            id_encuesta = $(this).val();
+            ID = id_encuesta;
+            nombresSegunEncu(id_encuesta);
+        });
+    });
+}
+//
+// poner nombres con una consulta
+function nombresSegunEncu(ID) {
+    $.ajax({
+        url: '../Controladores/Control_Encuesta.php',
+        data: {
+            Operacion: 'Listar_Tipos_EncuestasID',
+            id: ID
+        },
+        type: 'POST',
+        dataType: 'json',
+        success: function(datos) {
+            for (var i = 0; i < datos.length; i++) {
+                // Se imprime el nombre segun la seleccion de la encuesta
+                $('#TiDiaria').html(datos[i].nomb_encta);
+                $('#TiMensual').html(datos[i].nomb_encta);
+                $('#TiAnual').html(datos[i].nomb_encta);
+                // Se inserta en la variable global el nombre segun la encuesta(solo grafica anual)
+                nomAnual = datos[i].nomb_encta;
+                // se cargan las variables de grafica con el id
+                cargarEsDia(datos[i].id_encuesta);
+                listarEstadisticasMensual(datos[i].id_encuesta);
+                cargarDAnual(datos[i].id_encuesta);
+            }
+        },
+        error: function(xhr, status) {
+            alert('Disculpe, existió un problema');
         }
     });
 }

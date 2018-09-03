@@ -9,16 +9,16 @@ try {
     // $operacion = 'Listar_Estadisticas_Mes';
 
     if ($operacion == "Listar_Estadisticas_Mes") {
-        $resultado = $estadi->Listar_Estadisticas_Mes();
+        $resultado = $estadi->Listar_Estadisticas_Mes($_POST['id']);
         echo $resultado;
     }
 
     if ($operacion == "Listar_Estadisticas_Anual") {
-        $resultado = $estadi->Listar_Estadisticas_Anual();
+        $resultado = $estadi->Listar_Estadisticas_Anual($_POST['id']);
         echo $resultado;
     }
     if ($operacion == "Listar_Estadisticas_Diaria") {
-        $resultado = $estadi->Listar_Estadisticas_Diaria();
+        $resultado = $estadi->Listar_Estadisticas_Diaria($_POST['id']);
         echo $resultado;
     }
 

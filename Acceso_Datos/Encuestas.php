@@ -37,6 +37,27 @@ class Encuestas
 
     }
 
+    public function Listar_EncuestasID($id)
+    {
+
+        $bd       = new Conecar_bd();
+        $Conexion = $bd->Realizar_Conexion();
+
+        // $Conexion ->exec(SET CHARACTER SET utf8);
+        $Sql      = "SELECT * FROM bomberos.encuesta WHERE usuario=? and id_encuesta=$id";
+        $Consulta = $Conexion->prepare($Sql);
+        $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
+
+        if ($Consulta->execute()) {
+            $results = $Consulta->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($results);
+
+        } else {
+            echo "NO se ejecuto";
+        }
+
+    }
+
     public function Registrar_Encuesta($no_en, $esta_en)
     {
 

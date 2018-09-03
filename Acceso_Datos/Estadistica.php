@@ -13,14 +13,14 @@ class Estadistica
     public $encuesta;
     //Constructor
 
-    public function Listar_Estadisticas_Mes()
+    public function Listar_Estadisticas_Mes($id)
     {
 
         $bd       = new Conecar_bd();
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_mensual ORDER BY MES_NUM ASC";
+        $Sql      = "SELECT * FROM bomberos.estadistica_mensual WHERE id_evento=$id ORDER BY MES_NUM ASC";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -33,14 +33,14 @@ class Estadistica
 
     }
 
-    public function Listar_Estadisticas_Anual()
+    public function Listar_Estadisticas_Anual($id)
     {
 
         $bd       = new Conecar_bd();
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT AÑO as ano, TOTAL as total FROM bomberos.estadistica_anual";
+        $Sql      = "SELECT AÑO as ano, TOTAL as total FROM bomberos.estadistica_anual WHERE id_evento=$id";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -53,14 +53,14 @@ class Estadistica
 
     }
 
-    public function Listar_Estadisticas_Diaria()
+    public function Listar_Estadisticas_Diaria($id)
     {
 
         $bd       = new Conecar_bd();
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_diaria";
+        $Sql      = "SELECT * FROM bomberos.estadistica_diaria WHERE id_evento=$id";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {

@@ -55,12 +55,35 @@
         </div>
     </header>
     <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group pull-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li class="breadcrumb-item">
+                              <form class="" method="POST" action="">
+                                <div class="form-group">
+                                    <label>Encuesta</label>
+                                    <div class="form-group">
+                                        <select id="encuesta" required class="form-control">
+
+                                        </select>
+                                    </div>
+                                </div>
+                              </form>
+                            </li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title"></h4>
+                </div>
+            </div>
+        </div>
         <hr>
         <div class="row">
             <div class="col-md-12">
                 <h2 align="center">Gráfica Diaria</h2>
                 <hr>
-                <h6 style="text-anchor: 12px">INCENDIOS</h6>
+                <h6 id="TiDiaria" style="text-anchor: 12px">INCENDIOS</h6>
                  <div id="simple-line-chart" class="ct-chart ct-golden-section"></div>
                  <div id="resultado"></div>
             </div>
@@ -72,7 +95,7 @@
             <div class="col-md-12">
                 <h2 align="center">Gráfica mensual</h2>
                 <hr>
-                <h6 style="text-anchor: 12px">INCENDIOS</h6>
+                <h6 id="TiMensual" style="text-anchor: 12px">INCENDIOS</h6>
                 <div id="myfirstchart"></div>
             </div>
         </div>
@@ -83,7 +106,7 @@
             <div class="col-md-12">
                 <h2 align="center">Gráfica Anual</h2>
                 <hr>
-                <h6 style="text-anchor: 12px">INCENDIOS</h6>
+                <h6 id="TiAnual" style="text-anchor: 12px">INCENDIOS</h6>
                 <div id="graficaAnual"></div>
             </div>
         </div>

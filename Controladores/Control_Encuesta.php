@@ -24,6 +24,12 @@ try {
         echo $resultado;
     }
 
+    if ($operacion == "Listar_Tipos_EncuestasID") {
+
+        $resultado = $encuesta->Listar_EncuestasID($_POST['id']);
+        echo $resultado;
+    }
+
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();
 }
