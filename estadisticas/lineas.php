@@ -30,24 +30,30 @@
 
   </head>
   <body>
-     <header style="background-color:#220505; ">
-        <div class="container">
+     <header id="topnav" style="background-color:#220505; ">
+        <div class="topbar-main">
             <div class="container-fluid">
-                <!-- Logo container-->
-                <div class="logo">
-                    <!-- Text Logo -->
-                    <!--<a href="index.html" class="logo">-->
-                    <!--Upcube-->
-                    <!--</a>-->
-                    <!-- Image Logo -->
-                    <a href="../index.php" title="Inicio" class="logo">
-                        <!-- <img src="../assets/images/logo_sig/logo.png" alt="" height="35" class="logo-small"/> -->
-                        <img src="../assets/images/logo_sig/logo.png" alt="" height="50" class="logo-large"/>
-                    </a>
-                </div>
-                <!-- end menu-extras -->
-                <div class="clearfix">
-                </div>
+               <div class="topbar-main">
+                  <!-- Logo container-->
+                  <div class="logo">
+                      <!-- Text Logo -->
+                      <!--<a href="index.html" class="logo">-->
+                      <!--Upcube-->
+                      <!--</a>-->
+                      <!-- Image Logo -->
+                      <a href="../index.php" class="logo">
+                          <img src="../assets/images/logo_sig/logo.png" alt="" height="35" class="logo-small"/>
+                          <img src="../assets/images/logo_sig/logo.png" alt="" height="50" class="logo-large"/>
+                      </a>
+                  </div>
+                  <!-- End Logo container-->
+                  <div class="menu-extras topbar-custom">
+
+                  </div>
+                  <!-- end menu-extras -->
+                  <div class="clearfix">
+                  </div>
+               </div>
             </div>
             <!--
                 end container
@@ -55,6 +61,7 @@
         </div>
     </header>
     <div class="container">
+      <div class="wrapper">
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
@@ -77,6 +84,7 @@
                     <h4 class="page-title"></h4>
                 </div>
             </div>
+          </div>
         </div>
         <hr>
         <div class="row">

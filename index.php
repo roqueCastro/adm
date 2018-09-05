@@ -196,7 +196,7 @@ if (!isset($_SESSION['id'])) {
                                 <ul class="submenu">
                                     <li>
                                         <a href="estadisticas/lineas.php">
-                                            Incendios
+                                            Reporte estadistica
                                         </a>
                                     </li>
 

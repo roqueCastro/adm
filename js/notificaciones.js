@@ -22,6 +22,37 @@ function ajaxListarEventosEmergentes() {
 function imprimirNoti(jsonEventosEmerg) {
     var htmlNotifi = '';
     var datoCabeza = 0;
+    if (jsonEventosEmerg.length < 6) {
+        for (var i = 0; i < jsonEventosEmerg.length; i++) {
+            if (datoCabeza == 0) {
+                htmlNotifi += '<div class="dropdown-item noti-title">';
+                htmlNotifi += '<h5>';
+                htmlNotifi += ' Notification (' + jsonEventosEmerg.length + ')';
+                htmlNotifi += '</h5>';
+                htmlNotifi += '</div>';
+                datoCabeza = 1;
+            }
+            //VENTANA DE ALERTA
+            //
+            htmlNotifi += '<a href="javascript:Abrir_Ventana(' + jsonEventosEmerg[i].id_evento + ')" class="dropdown-item notify-item active">';
+            htmlNotifi += '<div class="notify-icon bg-danger">';
+            htmlNotifi += '<i class="mdi mdi-alert-octagon">';
+            htmlNotifi += '</i>';
+            htmlNotifi += '</div>';
+            htmlNotifi += '<p class="notify-details">';
+            htmlNotifi += '<b>';
+            htmlNotifi += jsonEventosEmerg[i].nomb_encta;
+            htmlNotifi += '</b>';
+            htmlNotifi += '<small class="text-muted">';
+            htmlNotifi += jsonEventosEmerg[i].dia + '-' + jsonEventosEmerg[i].mes + '-' + jsonEventosEmerg[i].ano + ' hora: ' + jsonEventosEmerg[i].hora;
+            htmlNotifi += '</small>';
+            htmlNotifi += '</p>';
+            htmlNotifi += '</a>';
+        }
+    }
+    $("#notificacion").html(htmlNotifi);
+    $("#numNoti").html(jsonEventosEmerg.length);
+    //
     for (var i = 0; i < 6; i++) {
         if (datoCabeza == 0) {
             htmlNotifi += '<div class="dropdown-item noti-title">';

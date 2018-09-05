@@ -12,8 +12,8 @@ setInterval(function() {
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
             center: pitalito,
-            // mapTypeId: google.maps.MapTypeId.HYBRID
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.HYBRID
+            // mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         cont = 1;
     }
