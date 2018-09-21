@@ -341,7 +341,7 @@ if (!isset($_SESSION['id'])) {
         <!-- --------------estilos de datos ------------->
         <style type="text/css">
         .containerr{
-            height: 450px;
+            height: 1180px;
         }
         #map{
             width: 100%;
