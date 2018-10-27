@@ -7,7 +7,7 @@ class ConsultaTablas
 
     public function Listar_Tablas()
     {
-        $Sql      = "SELECT id_pgta,  nomb_pgta, if(estado_pgta=1,'Activo','Inactivo') AS estado_pgta  FROM bomberos.pregunta";
+        $Sql      = "SELECT id_pgta,  nomb_pgta, if(estado_pgta=1,'Activo','Inactivo') AS estado_pgta  FROM proyect9_sig.pregunta";
         $Consulta = $this->conn->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -22,8 +22,8 @@ class ConsultaTablas
         $this->nombre_tabla = $tabla;
 
         if ($this->nombre_tabla == "respuesta") {
-            $Sql = " SELECT rpta.id_rpta, pgta.nomb_pgta, rpta.nomb_rpta, rpta.tipo_dato  FROM bomberos.respuesta AS rpta
-            INNER JOIN bomberos.pregunta AS pgta ON pgta.id_pgta=rpta.pregunta";
+            $Sql = " SELECT rpta.id_rpta, pgta.nomb_pgta, rpta.nomb_rpta, rpta.tipo_dato  FROM proyect9_sig.respuesta AS rpta
+            INNER JOIN proyect9_sig.pregunta AS pgta ON pgta.id_pgta=rpta.pregunta";
             $Consulta = $this->conn->prepare($Sql);
 
             if ($Consulta->execute()) {
@@ -35,7 +35,7 @@ class ConsultaTablas
         }
 
         if ($this->nombre_tabla == "pregunta") {
-            $Sql      = "SELECT id_pgta,  nomb_pgta, if(estado_pgta=1,'Activo','Inactivo') AS estado_pgta  FROM bomberos.pregunta";
+            $Sql      = "SELECT id_pgta,  nomb_pgta, if(estado_pgta=1,'Activo','Inactivo') AS estado_pgta  FROM proyect9_sig.pregunta";
             $Consulta = $this->conn->prepare($Sql);
 
             if ($Consulta->execute()) {
@@ -51,7 +51,7 @@ class ConsultaTablas
         }
 
         if ($this->nombre_tabla == "encuesta") {
-            $Sql      = "SELECT id_encuesta, nomb_encta, if(est_encta=1,'Activo','Inactivo') as est_encta  FROM bomberos.encuesta";
+            $Sql      = "SELECT id_encuesta, nomb_encta, if(est_encta=1,'Activo','Inactivo') as est_encta  FROM proyect9_sig.encuesta";
             $Consulta = $this->conn->prepare($Sql);
 
             if ($Consulta->execute()) {

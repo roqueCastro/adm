@@ -6,7 +6,7 @@ class Tipo_Pregunta
 
     public function Listar_Tipo_Preguntas()
     {
-        $Sql      = "SELECT * FROM bomberos.tipo_pregunta";
+        $Sql      = "SELECT * FROM proyect9_sig.tipo_pregunta";
         $Consulta = $this->conn->prepare($Sql);
 
         if ($Consulta->execute()) {

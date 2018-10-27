@@ -42,7 +42,7 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=1 and ADMIN=? ORDER BY id_evento DESC";
+        $Sql      = "SELECT * FROM proyect9_sig.coordenadas where estado=1 and ADMIN=? ORDER BY id_evento DESC";
         $Consulta = $Conexion->prepare($Sql);
         $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 
@@ -62,7 +62,7 @@ class Evento
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.coordenadas where estado=0 and ADMIN=?";
+        $Sql      = "SELECT * FROM proyect9_sig.coordenadas where estado=0 and ADMIN=?";
         $Consulta = $Conexion->prepare($Sql);
         $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 

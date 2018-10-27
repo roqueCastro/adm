@@ -40,7 +40,7 @@ class Respuesta
 
         try {
 
-            $consulta = $Conexion->prepare("INSERT INTO bomberos.respuesta (nomb_rpta, estado_rpta, pregunta, tipo_dato)VALUES(?,?,?,?)");
+            $consulta = $Conexion->prepare("INSERT INTO proyect9_sig.respuesta (nomb_rpta, estado_rpta, pregunta, tipo_dato)VALUES(?,?,?,?)");
 
             $consulta->bindParam(1, $nom, PDO::PARAM_STR);
             $consulta->bindParam(2, $esta, PDO::PARAM_INT);

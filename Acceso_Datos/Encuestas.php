@@ -23,7 +23,7 @@ class Encuestas
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.encuesta WHERE usuario=?";
+        $Sql      = "SELECT * FROM proyect9_sig.encuesta WHERE usuario=?";
         $Consulta = $Conexion->prepare($Sql);
         $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 
@@ -44,7 +44,7 @@ class Encuestas
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.encuesta WHERE usuario=? and id_encuesta=$id";
+        $Sql      = "SELECT * FROM proyect9_sig.encuesta WHERE usuario=? and id_encuesta=$id";
         $Consulta = $Conexion->prepare($Sql);
         $Consulta->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
 

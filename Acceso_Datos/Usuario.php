@@ -7,7 +7,7 @@ class Usuario
 
     public function Validar_Usuario($ema)
     {
-        $Sql      = "SELECT * FROM bomberos.usuario WHERE login=?";
+        $Sql      = "SELECT * FROM proyect9_sig.usuario WHERE login=?";
         $Consulta = $this->conn->prepare($Sql);
         $Consulta->bindParam(1, $ema, PDO::PARAM_STR);
 
@@ -29,7 +29,7 @@ class Usuario
 
     public function Iniciar_Sesion($cor, $con)
     {
-        $Sql   = "SELECT * FROM bomberos.usuario WHERE login=:cor";
+        $Sql   = "SELECT * FROM proyect9_sig.usuario WHERE login=:cor";
         $resul = $this->conn->prepare($Sql);
         $resul->execute(array(':cor' => $cor));
         $c = $resul->rowCount();

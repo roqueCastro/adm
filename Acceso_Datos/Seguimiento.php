@@ -6,7 +6,7 @@ class Seguimiento
 
     public function Listar_Seguimiento($id)
     {
-        $Sql      = "SELECT * FROM bomberos.seguimiento_table WHERE ID=$id";
+        $Sql      = "SELECT * FROM proyect9_sig.seguimiento_table WHERE ID=$id";
         $Consulta = $this->conn->prepare($Sql);
 
         if ($Consulta->execute()) {

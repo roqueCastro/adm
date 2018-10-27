@@ -20,7 +20,7 @@ class Estadistica
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_mensual WHERE id_evento=$id ORDER BY MES_NUM ASC";
+        $Sql      = "SELECT * FROM proyect9_sig.estadistica_mensual WHERE id_evento=$id ORDER BY MES_NUM ASC";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -40,7 +40,7 @@ class Estadistica
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT AÑO as ano, TOTAL as total FROM bomberos.estadistica_anual WHERE id_evento=$id";
+        $Sql      = "SELECT AÑO as ano, TOTAL as total FROM proyect9_sig.estadistica_anual WHERE id_evento=$id";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {
@@ -60,7 +60,7 @@ class Estadistica
         $Conexion = $bd->Realizar_Conexion();
 
         // $Conexion ->exec(SET CHARACTER SET utf8);
-        $Sql      = "SELECT * FROM bomberos.estadistica_diaria WHERE id_evento=$id";
+        $Sql      = "SELECT * FROM proyect9_sig.estadistica_diaria WHERE id_evento=$id";
         $Consulta = $Conexion->prepare($Sql);
 
         if ($Consulta->execute()) {

@@ -9,9 +9,9 @@ class Conecar_bd
     private $pass    = 'juanjose1201';
     private $bbdd    = 'bomberos';*/
     private $host    = 'localhost';
-    private $usuario = 'root';
-    private $pass    = '';
-    private $bbdd    = 'bomberos';
+    private $usuario = 'proyect9_sig';
+    private $pass    = 'proyect9_sig';
+    private $bbdd    = 'proyect9_sig';
 
     public function Realizar_Conexion()
     {

@@ -94,7 +94,7 @@ class Pregunta
 
         try {
 
-            $consulta = $Conexion->prepare("INSERT INTO bomberos.pregunta (nomb_pgta, estado_pgta, tipo_pregunta, encuesta2)VALUES(?,?,?,?)");
+            $consulta = $Conexion->prepare("INSERT INTO proyect9_sig.pregunta (nomb_pgta, estado_pgta, tipo_pregunta, encuesta2)VALUES(?,?,?,?)");
 
             $consulta->bindParam(1, $nom, PDO::PARAM_STR);
             $consulta->bindParam(2, $esta, PDO::PARAM_STR);
